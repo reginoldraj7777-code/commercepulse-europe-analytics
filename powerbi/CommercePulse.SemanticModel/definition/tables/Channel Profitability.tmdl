@@ -1,0 +1,65 @@
+/// Monthly market-channel revenue, media, and contribution fact.
+table 'Channel Profitability'
+	lineageTag: 506b6769-cdb2-42fd-85e3-1625d250d467
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 40635c3e-cfb3-4c76-9869-f2e74db11257
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: bd3c6223-279e-4d6c-9695-0ed4e5a5e667
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Channel Key'
+		dataType: int64
+		lineageTag: 318b477a-480b-44a6-b184-94eb6d3b3c14
+		summarizeBy: none
+		sourceColumn: channel_key
+
+	column Orders
+		dataType: int64
+		lineageTag: 1eeace83-2ea6-4c2b-bb7e-afc0b666cf6b
+		summarizeBy: sum
+		sourceColumn: orders
+
+	column 'Purchasing Customers'
+		dataType: int64
+		lineageTag: 5d03ee43-7faa-4c52-8255-0fe8d97f3408
+		summarizeBy: sum
+		sourceColumn: purchasing_customers
+
+	column 'Net Revenue EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: b2588abd-8dff-42ea-ad75-b518ebddf2fe
+		summarizeBy: sum
+		sourceColumn: net_revenue_eur
+
+	column 'Marketing Spend EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: f01eced6-5cdc-4ee0-a725-d4ad6efb1529
+		summarizeBy: sum
+		sourceColumn: marketing_spend_eur
+
+	column 'Contribution Margin EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: d7181ffc-183c-4c7e-9da3-6f9dbbcb5853
+		summarizeBy: sum
+		sourceColumn: contribution_margin_eur
+
+	partition 'Channel Profitability' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_channel_profitability"]}[Data]
+				in
+				    Data
+

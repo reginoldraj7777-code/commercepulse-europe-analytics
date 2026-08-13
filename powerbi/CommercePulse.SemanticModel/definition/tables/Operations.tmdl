@@ -1,0 +1,64 @@
+/// Monthly market-hub-carrier service and shipping economics.
+table Operations
+	lineageTag: fac5af7b-35c9-4403-b6ff-62330914efe3
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 10e85133-b584-4cbc-8adb-c1c14f399ce0
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: 27383196-5df7-4001-8efc-3dfffbc67c6e
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Fulfillment Hub'
+		dataType: string
+		lineageTag: 0ec258f7-282d-4880-ba35-192cdc8f8703
+		summarizeBy: none
+		sourceColumn: fulfillment_hub
+
+	column Carrier
+		dataType: string
+		lineageTag: 4d4e6a98-02fd-4d4c-a4c2-9bbbeacf5eb2
+		summarizeBy: none
+		sourceColumn: carrier
+
+	column 'Fulfilled Orders'
+		dataType: int64
+		lineageTag: 46da0ce2-e9e4-4f69-82df-b9d9112adb08
+		summarizeBy: sum
+		sourceColumn: fulfilled_orders
+
+	column 'On Time Orders'
+		dataType: int64
+		lineageTag: e803cd28-2a65-4a3d-a195-f66d40b76ffd
+		summarizeBy: sum
+		sourceColumn: on_time_orders
+
+	column 'Average Transit Days'
+		dataType: double
+		formatString: 0.0
+		lineageTag: 847c9938-65e6-4adf-858e-1c51c6b77693
+		summarizeBy: none
+		sourceColumn: average_transit_days
+
+	column 'Shipping Cost EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 13580cc3-b68e-4181-b6fe-0ffcfb8c147d
+		summarizeBy: sum
+		sourceColumn: shipping_cost_eur
+
+	partition Operations = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_operations"]}[Data]
+				in
+				    Data
+

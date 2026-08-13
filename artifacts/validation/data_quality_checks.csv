@@ -1,0 +1,30 @@
+check,table,status,observed,expected,severity
+required_columns,dim_date,PASS,all present,all required columns present,critical
+required_columns,dim_geography,PASS,all present,all required columns present,critical
+required_columns,dim_channel,PASS,all present,all required columns present,critical
+required_columns,dim_campaign,PASS,all present,all required columns present,critical
+required_columns,dim_customer,PASS,all present,all required columns present,critical
+required_columns,dim_product,PASS,all present,all required columns present,critical
+required_columns,bridge_market_holiday,PASS,all present,all required columns present,critical
+required_columns,ref_fx_rates,PASS,all present,all required columns present,critical
+required_columns,fact_sessions,PASS,all present,all required columns present,critical
+required_columns,fact_orders,PASS,all present,all required columns present,critical
+required_columns,fact_order_items,PASS,all present,all required columns present,critical
+required_columns,fact_marketing_spend,PASS,all present,all required columns present,critical
+required_columns,fact_fulfillment,PASS,all present,all required columns present,critical
+required_columns,fact_returns,PASS,all present,all required columns present,critical
+required_columns,fact_inventory_snapshot,PASS,all present,all required columns present,critical
+required_columns,fact_targets,PASS,all present,all required columns present,critical
+unique_session_id,fact_sessions,PASS,0,0 duplicate IDs,critical
+session_market_not_null,fact_sessions,PASS,0,0 null market keys,critical
+unique_order_id,fact_orders,PASS,0,0 duplicate IDs,critical
+unique_order_item_id,fact_order_items,PASS,0,0 duplicate IDs,critical
+order_item_product_fk,fact_order_items,PASS,0,0 orphan product keys,critical
+positive_item_quantity,fact_order_items,PASS,0,0 nonpositive quantities,critical
+nonnegative_marketing_spend,fact_marketing_spend,PASS,0,0 negative spend rows,critical
+fulfillment_date_sequence,fact_fulfillment,PASS,0,0 delivered-before-shipped rows,critical
+return_item_fk,fact_returns,PASS,0,0 orphan order-item keys,critical
+nonnegative_inventory,fact_inventory_snapshot,PASS,0,0 negative on-hand rows,critical
+order_item_reconciliation,fact_orders,PASS,0.0,maximum order-level delta <= EUR-equivalent local 0.02,critical
+pandera_schema,fact_sessions,PASS,schema valid,no Pandera violations,critical
+pandera_schema,fact_order_items,PASS,schema valid,no Pandera violations,critical

@@ -1,0 +1,640 @@
+{
+  "validated_at_utc": "2026-08-13T18:57:21.607230+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "required_columns",
+      "table": "dim_date",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "dim_geography",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "dim_channel",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "dim_campaign",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "dim_customer",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "dim_product",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "bridge_market_holiday",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "ref_fx_rates",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_sessions",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_orders",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_order_items",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_marketing_spend",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_fulfillment",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_returns",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_inventory_snapshot",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "required_columns",
+      "table": "fact_targets",
+      "status": "PASS",
+      "observed": "all present",
+      "expected": "all required columns present",
+      "severity": "critical"
+    },
+    {
+      "check": "unique_session_id",
+      "table": "fact_sessions",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 duplicate IDs",
+      "severity": "critical"
+    },
+    {
+      "check": "session_market_not_null",
+      "table": "fact_sessions",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 null market keys",
+      "severity": "critical"
+    },
+    {
+      "check": "unique_order_id",
+      "table": "fact_orders",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 duplicate IDs",
+      "severity": "critical"
+    },
+    {
+      "check": "unique_order_item_id",
+      "table": "fact_order_items",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 duplicate IDs",
+      "severity": "critical"
+    },
+    {
+      "check": "order_item_product_fk",
+      "table": "fact_order_items",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 orphan product keys",
+      "severity": "critical"
+    },
+    {
+      "check": "positive_item_quantity",
+      "table": "fact_order_items",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 nonpositive quantities",
+      "severity": "critical"
+    },
+    {
+      "check": "nonnegative_marketing_spend",
+      "table": "fact_marketing_spend",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 negative spend rows",
+      "severity": "critical"
+    },
+    {
+      "check": "fulfillment_date_sequence",
+      "table": "fact_fulfillment",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 delivered-before-shipped rows",
+      "severity": "critical"
+    },
+    {
+      "check": "return_item_fk",
+      "table": "fact_returns",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 orphan order-item keys",
+      "severity": "critical"
+    },
+    {
+      "check": "nonnegative_inventory",
+      "table": "fact_inventory_snapshot",
+      "status": "PASS",
+      "observed": 0,
+      "expected": "0 negative on-hand rows",
+      "severity": "critical"
+    },
+    {
+      "check": "order_item_reconciliation",
+      "table": "fact_orders",
+      "status": "PASS",
+      "observed": 0.0,
+      "expected": "maximum order-level delta <= EUR-equivalent local 0.02",
+      "severity": "critical"
+    },
+    {
+      "check": "pandera_schema",
+      "table": "fact_sessions",
+      "status": "PASS",
+      "observed": "schema valid",
+      "expected": "no Pandera violations",
+      "severity": "critical"
+    },
+    {
+      "check": "pandera_schema",
+      "table": "fact_order_items",
+      "status": "PASS",
+      "observed": "schema valid",
+      "expected": "no Pandera violations",
+      "severity": "critical"
+    }
+  ],
+  "quarantine_summary": [
+    {
+      "table": "fact_sessions",
+      "rule": "duplicate_session_id",
+      "quarantined_rows": 36
+    },
+    {
+      "table": "fact_sessions",
+      "rule": "missing_session_market",
+      "quarantined_rows": 24
+    },
+    {
+      "table": "fact_orders",
+      "rule": "order_without_valid_items",
+      "quarantined_rows": 4
+    },
+    {
+      "table": "fact_orders",
+      "rule": "orphan_order_session",
+      "quarantined_rows": 3
+    },
+    {
+      "table": "fact_order_items",
+      "rule": "invalid_order_item_product",
+      "quarantined_rows": 4
+    },
+    {
+      "table": "fact_order_items",
+      "rule": "nonpositive_order_item_quantity",
+      "quarantined_rows": 5
+    },
+    {
+      "table": "fact_order_items",
+      "rule": "orphan_order_item_order",
+      "quarantined_rows": 6
+    },
+    {
+      "table": "fact_marketing_spend",
+      "rule": "negative_marketing_spend",
+      "quarantined_rows": 10
+    },
+    {
+      "table": "fact_fulfillment",
+      "rule": "invalid_fulfillment_sequence",
+      "quarantined_rows": 6
+    },
+    {
+      "table": "fact_fulfillment",
+      "rule": "orphan_fulfillment_order",
+      "quarantined_rows": 7
+    },
+    {
+      "table": "fact_returns",
+      "rule": "orphan_return_item",
+      "quarantined_rows": 1
+    },
+    {
+      "table": "fact_returns",
+      "rule": "orphan_return_order",
+      "quarantined_rows": 1
+    },
+    {
+      "table": "fact_inventory_snapshot",
+      "rule": "negative_inventory_on_hand",
+      "quarantined_rows": 5
+    }
+  ],
+  "expected_injected_defects": [
+    {
+      "rule": "duplicate_session_id",
+      "table": "fact_sessions",
+      "injected_rows": 36
+    },
+    {
+      "rule": "missing_session_market",
+      "table": "fact_sessions",
+      "injected_rows": 24
+    },
+    {
+      "rule": "invalid_order_item_product",
+      "table": "fact_order_items",
+      "injected_rows": 4
+    },
+    {
+      "rule": "nonpositive_order_item_quantity",
+      "table": "fact_order_items",
+      "injected_rows": 5
+    },
+    {
+      "rule": "negative_marketing_spend",
+      "table": "fact_marketing_spend",
+      "injected_rows": 10
+    },
+    {
+      "rule": "invalid_fulfillment_sequence",
+      "table": "fact_fulfillment",
+      "injected_rows": 6
+    },
+    {
+      "rule": "orphan_return_item",
+      "table": "fact_returns",
+      "injected_rows": 1
+    },
+    {
+      "rule": "negative_inventory_on_hand",
+      "table": "fact_inventory_snapshot",
+      "injected_rows": 5
+    },
+    {
+      "rule": "late_arrival_over_14_days",
+      "table": "fact_sessions",
+      "injected_rows": 384
+    }
+  ],
+  "raw_files": [
+    {
+      "table": "bridge_market_holiday",
+      "rows": 22,
+      "columns": 5,
+      "bytes": 3757,
+      "sha256": "66022e5d151e8081f8bfd47aa53ff245c7c2d08a18e625ad7744ad7cc23a7d73"
+    },
+    {
+      "table": "dim_campaign",
+      "rows": 61,
+      "columns": 8,
+      "bytes": 5838,
+      "sha256": "5de6bfc481ad3b5e7d2dc2d1d0ca98478e6c2c241f8ef8a2642b664d040c6439"
+    },
+    {
+      "table": "dim_channel",
+      "rows": 6,
+      "columns": 4,
+      "bytes": 2908,
+      "sha256": "69b7084c115df8dc1b200a97b481d943a2dce8ee6a9cd973284c85181b3a169c"
+    },
+    {
+      "table": "dim_customer",
+      "rows": 3000,
+      "columns": 9,
+      "bytes": 32017,
+      "sha256": "600eb342bd01d353aca03b44b1b9c436717e7462856a29d6bc2c8c6510d4d1e0"
+    },
+    {
+      "table": "dim_date",
+      "rows": 181,
+      "columns": 13,
+      "bytes": 10438,
+      "sha256": "f81caa0b70d7959c8fc5c4fa7eec65c1a2bdd25d7c915eb68cbf02cbbfb31e65"
+    },
+    {
+      "table": "dim_geography",
+      "rows": 10,
+      "columns": 8,
+      "bytes": 5629,
+      "sha256": "c5df75333aab76adebaaa08601616e8d16f14bf596cd0b095c9bc888603be4b9"
+    },
+    {
+      "table": "dim_product",
+      "rows": 120,
+      "columns": 12,
+      "bytes": 12569,
+      "sha256": "538559479b38df8b3f43b0e2b21f2c0c66446ab3b8d51618cf07ed44f9a14226"
+    },
+    {
+      "table": "fact_fulfillment",
+      "rows": 8536,
+      "columns": 13,
+      "bytes": 147863,
+      "sha256": "e777b442c7665694573a4b06226801ef72965ce1bb1dee4a075eeaed0f8dee11"
+    },
+    {
+      "table": "fact_inventory_snapshot",
+      "rows": 7200,
+      "columns": 11,
+      "bytes": 40335,
+      "sha256": "99217ee917b8e7f21683e32ef06931d468b8c23dca39d11930c81e5b0d8d6c4c"
+    },
+    {
+      "table": "fact_marketing_spend",
+      "rows": 10860,
+      "columns": 12,
+      "bytes": 107609,
+      "sha256": "50b46c064e252f559de1d7321ffe4d909db76cbe8da21b03df9f81ace0837bc7"
+    },
+    {
+      "table": "fact_order_items",
+      "rows": 13763,
+      "columns": 11,
+      "bytes": 281582,
+      "sha256": "c7818ad440339750fa3313e8dfb9ce3c1714eafb58fb1871add240971a57c3a8"
+    },
+    {
+      "table": "fact_orders",
+      "rows": 8698,
+      "columns": 19,
+      "bytes": 392876,
+      "sha256": "025757bba8de54d7278bd55e54c3ed289bde502f2f1dca7de1b82e378f5177b9"
+    },
+    {
+      "table": "fact_returns",
+      "rows": 1820,
+      "columns": 13,
+      "bytes": 54745,
+      "sha256": "59476eca8b99be265c3241f6b31866aa0ce66278eb5eb478230619ed4b6d9fd9"
+    },
+    {
+      "table": "fact_sessions",
+      "rows": 60036,
+      "columns": 15,
+      "bytes": 1667997,
+      "sha256": "0cd9ede9cafe51509575c996afd9a0d188f63adfb07c73735c6dabe5752979d7"
+    },
+    {
+      "table": "fact_targets",
+      "rows": 360,
+      "columns": 12,
+      "bytes": 12618,
+      "sha256": "983d3569ec971ae16aea2ec699d7126e3e8c3e949b8e4f41ea3b6045bf849676"
+    },
+    {
+      "table": "ref_fx_rates",
+      "rows": 724,
+      "columns": 6,
+      "bytes": 9822,
+      "sha256": "26b7a0256738906ac0321affe3470eafcb5779671e53603e560a63ed78a878ae"
+    }
+  ],
+  "clean_files": [
+    {
+      "table": "bridge_market_holiday",
+      "rows": 22,
+      "columns": 5,
+      "bytes": 3757,
+      "sha256": "66022e5d151e8081f8bfd47aa53ff245c7c2d08a18e625ad7744ad7cc23a7d73"
+    },
+    {
+      "table": "dim_campaign",
+      "rows": 61,
+      "columns": 8,
+      "bytes": 5838,
+      "sha256": "5de6bfc481ad3b5e7d2dc2d1d0ca98478e6c2c241f8ef8a2642b664d040c6439"
+    },
+    {
+      "table": "dim_channel",
+      "rows": 6,
+      "columns": 4,
+      "bytes": 2908,
+      "sha256": "69b7084c115df8dc1b200a97b481d943a2dce8ee6a9cd973284c85181b3a169c"
+    },
+    {
+      "table": "dim_customer",
+      "rows": 3000,
+      "columns": 9,
+      "bytes": 32017,
+      "sha256": "600eb342bd01d353aca03b44b1b9c436717e7462856a29d6bc2c8c6510d4d1e0"
+    },
+    {
+      "table": "dim_date",
+      "rows": 181,
+      "columns": 13,
+      "bytes": 10438,
+      "sha256": "f81caa0b70d7959c8fc5c4fa7eec65c1a2bdd25d7c915eb68cbf02cbbfb31e65"
+    },
+    {
+      "table": "dim_geography",
+      "rows": 10,
+      "columns": 8,
+      "bytes": 5629,
+      "sha256": "c5df75333aab76adebaaa08601616e8d16f14bf596cd0b095c9bc888603be4b9"
+    },
+    {
+      "table": "dim_product",
+      "rows": 120,
+      "columns": 12,
+      "bytes": 12569,
+      "sha256": "538559479b38df8b3f43b0e2b21f2c0c66446ab3b8d51618cf07ed44f9a14226"
+    },
+    {
+      "table": "fact_fulfillment",
+      "rows": 8523,
+      "columns": 13,
+      "bytes": 147728,
+      "sha256": "cf812faae9a35a00858a52863d56dad6d9c9b3ee517388b608131c45fea08446"
+    },
+    {
+      "table": "fact_inventory_snapshot",
+      "rows": 7195,
+      "columns": 11,
+      "bytes": 41057,
+      "sha256": "f554f3b74f604cc0f872a7db0d1c31e7ce90199ee240ccaebb4809d7aadf8ebd"
+    },
+    {
+      "table": "fact_marketing_spend",
+      "rows": 10850,
+      "columns": 12,
+      "bytes": 108003,
+      "sha256": "a326887b9d77f2e1b00ad86308fe5989ebce68b99e980a3e65a42a596e1fea98"
+    },
+    {
+      "table": "fact_order_items",
+      "rows": 13748,
+      "columns": 11,
+      "bytes": 281293,
+      "sha256": "99fef1e780cf79701f5959fc6485d28e11b14e381eaa03735c6bc739aca7ec85"
+    },
+    {
+      "table": "fact_orders",
+      "rows": 8691,
+      "columns": 19,
+      "bytes": 392543,
+      "sha256": "5eaea74848a1bb5e3fb0809e584903b84c7dfa89e8d747d4cbf625b29535a134"
+    },
+    {
+      "table": "fact_returns",
+      "rows": 1818,
+      "columns": 13,
+      "bytes": 54710,
+      "sha256": "aa7f809fec66ceb7210bfcb804b922f64da287d29c053d22853e15d4d1fa4ed2"
+    },
+    {
+      "table": "fact_sessions",
+      "rows": 59976,
+      "columns": 15,
+      "bytes": 1666304,
+      "sha256": "6307ea327d7dbd61220b97d6897dc1b835a51ca8b82617c29c881457281882e8"
+    },
+    {
+      "table": "fact_targets",
+      "rows": 360,
+      "columns": 12,
+      "bytes": 12618,
+      "sha256": "983d3569ec971ae16aea2ec699d7126e3e8c3e949b8e4f41ea3b6045bf849676"
+    },
+    {
+      "table": "ref_fx_rates",
+      "rows": 724,
+      "columns": 6,
+      "bytes": 9822,
+      "sha256": "26b7a0256738906ac0321affe3470eafcb5779671e53603e560a63ed78a878ae"
+    }
+  ],
+  "quarantine_files": [
+    {
+      "table": "fact_fulfillment",
+      "rows": 13,
+      "columns": 15,
+      "bytes": 10591,
+      "sha256": "0127e7473d61e6d7f32596e48f24080c4f1e7ffb701f8122aa7fdbe3f7471751"
+    },
+    {
+      "table": "fact_inventory_snapshot",
+      "rows": 5,
+      "columns": 13,
+      "bytes": 8640,
+      "sha256": "2da9bfc8ad6c1bc07c29dbbfeddf929bb93bcda5e6b7e528deb7bfb75823ae86"
+    },
+    {
+      "table": "fact_marketing_spend",
+      "rows": 10,
+      "columns": 14,
+      "bytes": 9415,
+      "sha256": "efec6ea1513ec4a5ab8d49f60f24f0e64627ce6ee60c1e15ad044919e8f1d813"
+    },
+    {
+      "table": "fact_order_items",
+      "rows": 15,
+      "columns": 13,
+      "bytes": 9454,
+      "sha256": "3aaf9e319e49cff9747385c9c05d4d90a5cc733ab133e2852c113853edb2a6d7"
+    },
+    {
+      "table": "fact_orders",
+      "rows": 7,
+      "columns": 21,
+      "bytes": 13848,
+      "sha256": "0510fa3590c4c5a8d355a354ea95e851009c8e55ed49976f4559d1750478ab0b"
+    },
+    {
+      "table": "fact_returns",
+      "rows": 2,
+      "columns": 15,
+      "bytes": 9889,
+      "sha256": "175557a16397973241073e774aa9ed943e3cb38e74723ba3b7695e622b74162e"
+    },
+    {
+      "table": "fact_sessions",
+      "rows": 60,
+      "columns": 17,
+      "bytes": 12838,
+      "sha256": "c57c874b9478ec2c41e70f554832e71a568cdc9dabc8a40b8779ee3ad0a5b462"
+    },
+    {
+      "table": "fact_targets",
+      "rows": 0,
+      "columns": 14,
+      "bytes": 7424,
+      "sha256": "a48ad9a78235692b64936e09ca2fd70a85b5358777f09e0cee8b80849da566d3"
+    }
+  ],
+  "late_arrivals_retained": 383,
+  "policy": "Critical/high invalid records are quarantined; stable late-arrival records are retained with an explicit flag. Order totals are recomputed from surviving atomic items."
+}

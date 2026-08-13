@@ -1,0 +1,320 @@
+/// Central governed DAX measure table.
+table 'KPI Measures'
+	lineageTag: b27a20bd-8d81-45fd-af86-95b2438387ba
+
+	/// Governed gross revenue measure; use this measure instead of implicit aggregation.
+	measure 'Gross Revenue' = SUM('Order Profitability'[Gross Revenue EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 56cd7714-0dd6-4fe2-96a3-fdd3686b8cd4
+
+	/// Governed discounts measure; use this measure instead of implicit aggregation.
+	measure Discounts = SUM('Order Profitability'[Discount EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: d23590a0-eff0-43a1-972d-4e961ca2e62f
+
+	/// Governed refunds measure; use this measure instead of implicit aggregation.
+	measure Refunds = SUM('Order Profitability'[Refund EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 62d11edc-643f-4b32-a55c-251e47dc9cf0
+
+	/// Governed net revenue measure; use this measure instead of implicit aggregation.
+	measure 'Net Revenue' = SUM('Order Profitability'[Net Revenue EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 34508630-a5e2-4ff5-b963-e2ba04def1a8
+
+	/// Governed cogs measure; use this measure instead of implicit aggregation.
+	measure COGS = SUM('Order Profitability'[COGS EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 05ad5d54-dce1-47e1-9f59-87d1b5c1a9d9
+
+	/// Governed marketing spend measure; use this measure instead of implicit aggregation.
+	measure 'Marketing Spend' = SUM('Order Profitability'[Marketing Spend EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 68d9132c-5d3a-4bd5-8396-f27cb4a887f3
+
+	/// Governed fulfillment cost measure; use this measure instead of implicit aggregation.
+	measure 'Fulfillment Cost' = SUM('Order Profitability'[Fulfillment Cost EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 23ef93dd-b088-4c8a-bc5d-b41db63f01f9
+
+	/// Governed return handling cost measure; use this measure instead of implicit aggregation.
+	measure 'Return Handling Cost' = SUM('Order Profitability'[Return Handling Cost EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 539a3b5d-735f-4acd-9dec-690cb7ca4fb8
+
+	/// Governed recovered cogs measure; use this measure instead of implicit aggregation.
+	measure 'Recovered COGS' = SUM('Order Profitability'[Recovered COGS EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: dd97d2d1-b040-4abf-a233-db8d850e9873
+
+	/// Governed contribution margin measure; use this measure instead of implicit aggregation.
+	measure 'Contribution Margin' = SUM('Order Profitability'[Contribution Margin EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Finance
+		lineageTag: 21599998-9735-49e5-9d0c-1a579e13b84f
+
+	/// Governed contribution margin rate measure; use this measure instead of implicit aggregation.
+	measure 'Contribution Margin Rate' = DIVIDE([Contribution Margin], [Net Revenue])
+		formatString: 0.0%;[Red]-0.0%
+		displayFolder: Finance
+		lineageTag: 5e68febd-5a56-47f8-9b4f-73fc7c48bbd4
+
+	/// Governed orders measure; use this measure instead of implicit aggregation.
+	measure Orders = DISTINCTCOUNT('Order Profitability'[Order ID])
+		formatString: #,0
+		displayFolder: Commerce
+		lineageTag: 29caa363-126e-4d57-9ff4-47932116610c
+
+	/// Governed purchasing customers measure; use this measure instead of implicit aggregation.
+	measure 'Purchasing Customers' = DISTINCTCOUNT('Order Profitability'[Customer Key])
+		formatString: #,0
+		displayFolder: Commerce
+		lineageTag: 6c76c9b2-1119-47c4-8484-7b6a30a6551e
+
+	/// Governed units sold measure; use this measure instead of implicit aggregation.
+	measure 'Units Sold' = SUM('Order Profitability'[Quantity])
+		formatString: #,0
+		displayFolder: Commerce
+		lineageTag: cecb0a4f-c4da-4dd0-8b71-c05d02622f2e
+
+	/// Governed units returned measure; use this measure instead of implicit aggregation.
+	measure 'Units Returned' = SUM('Order Profitability'[Units Returned])
+		formatString: #,0
+		displayFolder: Commerce
+		lineageTag: d4b973e3-7a68-4753-bae3-4b18803a3e75
+
+	/// Governed return rate measure; use this measure instead of implicit aggregation.
+	measure 'Return Rate' = DIVIDE([Units Returned], [Units Sold])
+		formatString: 0.0%
+		displayFolder: Commerce
+		lineageTag: e755ebe2-396e-475e-94c1-4fa6d1516acb
+
+	/// Governed average order value measure; use this measure instead of implicit aggregation.
+	measure 'Average Order Value' = DIVIDE([Net Revenue], [Orders])
+		formatString: €#,0.00
+		displayFolder: Commerce
+		lineageTag: f8ec9f6e-0f0a-4fb5-aa3e-5857337f71a9
+
+	/// Governed attributed roas measure; use this measure instead of implicit aggregation.
+	measure 'Attributed ROAS' = DIVIDE([Net Revenue], [Marketing Spend])
+		formatString: 0.00x
+		displayFolder: Commerce
+		lineageTag: 78abed85-d391-44cb-b093-5fefbe46936e
+
+	/// Governed sessions measure; use this measure instead of implicit aggregation.
+	measure Sessions = DISTINCTCOUNT('Sessions'[Session ID])
+		formatString: #,0
+		displayFolder: Funnel
+		lineageTag: 19e7a2d8-f5b7-4998-8b5e-2e07dfdf416a
+
+	/// Governed converted sessions measure; use this measure instead of implicit aggregation.
+	measure 'Converted Sessions' = SUM('Sessions'[Converted Session])
+		formatString: #,0
+		displayFolder: Funnel
+		lineageTag: 04589492-4c3c-4ea7-b8d3-ee3ec1a795e1
+
+	/// Governed conversion rate measure; use this measure instead of implicit aggregation.
+	measure 'Conversion Rate' = DIVIDE([Converted Sessions], [Sessions])
+		formatString: 0.0%
+		displayFolder: Funnel
+		lineageTag: 70d1b781-4285-45d0-b891-45fbb54983fa
+
+	/// Governed added to cart sessions measure; use this measure instead of implicit aggregation.
+	measure 'Added To Cart Sessions' = CALCULATE([Sessions], 'Sessions'[Added To Cart] = TRUE())
+		formatString: #,0
+		displayFolder: Funnel
+		lineageTag: 684ef27d-e2bb-436b-8641-9a4b4d374d7d
+
+	/// Governed checkout sessions measure; use this measure instead of implicit aggregation.
+	measure 'Checkout Sessions' = CALCULATE([Sessions], 'Sessions'[Checkout Started] = TRUE())
+		formatString: #,0
+		displayFolder: Funnel
+		lineageTag: e7b95447-102e-4c2b-9970-a570cb9d140a
+
+	/// Governed add to cart rate measure; use this measure instead of implicit aggregation.
+	measure 'Add To Cart Rate' = DIVIDE([Added To Cart Sessions], [Sessions])
+		formatString: 0.0%
+		displayFolder: Funnel
+		lineageTag: 5e717293-6dcf-4dd7-8659-11fa5901b399
+
+	/// Governed checkout completion rate measure; use this measure instead of implicit aggregation.
+	measure 'Checkout Completion Rate' = DIVIDE([Converted Sessions], [Checkout Sessions])
+		formatString: 0.0%
+		displayFolder: Funnel
+		lineageTag: e5645594-e93f-4dd3-a1ee-9361a5cb2230
+
+	/// Governed average page load ms measure; use this measure instead of implicit aggregation.
+	measure 'Average Page Load MS' = AVERAGE('Sessions'[Page Load MS])
+		formatString: #,0
+		displayFolder: Product
+		lineageTag: 95e53890-5d12-4920-bd42-9b322b51d929
+
+	/// Governed fulfilled orders measure; use this measure instead of implicit aggregation.
+	measure 'Fulfilled Orders' = SUM('Operations'[Fulfilled Orders])
+		formatString: #,0
+		displayFolder: Operations
+		lineageTag: ca311232-a668-4bae-9e78-922bf45d4a50
+
+	/// Governed on time orders measure; use this measure instead of implicit aggregation.
+	measure 'On Time Orders' = SUM('Operations'[On Time Orders])
+		formatString: #,0
+		displayFolder: Operations
+		lineageTag: c47eda01-ff4c-4ba2-90e3-a22135aa4fa3
+
+	/// Governed on time delivery rate measure; use this measure instead of implicit aggregation.
+	measure 'On Time Delivery Rate' = DIVIDE([On Time Orders], [Fulfilled Orders])
+		formatString: 0.0%
+		displayFolder: Operations
+		lineageTag: 8aebe7ff-9b66-4b54-9756-cfc70be691ff
+
+	/// Governed shipping cost measure; use this measure instead of implicit aggregation.
+	measure 'Shipping Cost' = SUM('Operations'[Shipping Cost EUR])
+		formatString: €#,0
+		displayFolder: Operations
+		lineageTag: 75c34182-06ad-4650-bfff-ee7cb954c8c2
+
+	/// Governed shipping cost per order measure; use this measure instead of implicit aggregation.
+	measure 'Shipping Cost Per Order' = DIVIDE([Shipping Cost], [Fulfilled Orders])
+		formatString: €#,0.00
+		displayFolder: Operations
+		lineageTag: af11406d-ce4b-435f-909d-51c1d39f9841
+
+	/// Governed inventory snapshots measure; use this measure instead of implicit aggregation.
+	measure 'Inventory Snapshots' = COUNTROWS('Inventory')
+		formatString: #,0
+		displayFolder: Inventory
+		lineageTag: 961a3eb6-d66a-423b-bb48-68ca60737157
+
+	/// Governed stockout snapshots measure; use this measure instead of implicit aggregation.
+	measure 'Stockout Snapshots' = CALCULATE(COUNTROWS('Inventory'), 'Inventory'[Stockout Flag] = TRUE())
+		formatString: #,0
+		displayFolder: Inventory
+		lineageTag: d85b40a2-3e44-4a5a-91c0-02b350dddc67
+
+	/// Governed stockout rate measure; use this measure instead of implicit aggregation.
+	measure 'Stockout Rate' = DIVIDE([Stockout Snapshots], [Inventory Snapshots])
+		formatString: 0.0%
+		displayFolder: Inventory
+		lineageTag: 45e60649-87ae-4046-afcb-44fef1b093af
+
+	/// Governed estimated lost units measure; use this measure instead of implicit aggregation.
+	measure 'Estimated Lost Units' = SUM('Inventory'[Estimated Lost Units])
+		formatString: #,0
+		displayFolder: Inventory
+		lineageTag: a1943595-e7b8-4363-97c5-f6a6a10ed0f6
+
+	/// Governed estimated lost revenue measure; use this measure instead of implicit aggregation.
+	measure 'Estimated Lost Revenue' = SUM('Inventory'[Estimated Lost Revenue EUR])
+		formatString: €#,0
+		displayFolder: Inventory
+		lineageTag: cd550f71-78c3-4d69-9fb4-e5edb9522429
+
+	/// Governed net revenue target measure; use this measure instead of implicit aggregation.
+	measure 'Net Revenue Target' = SUM('Target Variance'[Net Revenue Target EUR])
+		formatString: €#,0
+		displayFolder: Targets
+		lineageTag: 89c90df5-a066-41e1-bbeb-50900ff718cd
+
+	/// Governed net revenue variance measure; use this measure instead of implicit aggregation.
+	measure 'Net Revenue Variance' = SUM('Target Variance'[Net Revenue Variance EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Targets
+		lineageTag: 1f2279c8-a410-431f-8420-f2b98bd508dc
+
+	/// Governed revenue target attainment measure; use this measure instead of implicit aggregation.
+	measure 'Revenue Target Attainment' = DIVIDE(SUM('Target Variance'[Actual Net Revenue EUR]), [Net Revenue Target])
+		formatString: 0.0%
+		displayFolder: Targets
+		lineageTag: af8ac628-6837-4f8b-b79a-835dfcfdc389
+
+	/// Governed contribution margin target measure; use this measure instead of implicit aggregation.
+	measure 'Contribution Margin Target' = SUM('Target Variance'[Contribution Margin Target EUR])
+		formatString: €#,0
+		displayFolder: Targets
+		lineageTag: b46497ee-0b7d-489b-9284-34788d463e4d
+
+	/// Governed contribution margin variance measure; use this measure instead of implicit aggregation.
+	measure 'Contribution Margin Variance' = SUM('Target Variance'[Contribution Margin Variance EUR])
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Targets
+		lineageTag: 07a68d3e-74f0-441a-9139-72554d96c82b
+
+	/// Governed prior quarter net revenue measure; use this measure instead of implicit aggregation.
+	measure 'Prior Quarter Net Revenue' = CALCULATE([Net Revenue], DATEADD('Date'[Date], -1, QUARTER))
+		formatString: €#,0
+		displayFolder: Time Intelligence
+		lineageTag: 40deda99-4115-47c4-aec7-be79a6d68203
+
+	/// Governed net revenue qoq measure; use this measure instead of implicit aggregation.
+	measure 'Net Revenue QoQ' = DIVIDE([Net Revenue] - [Prior Quarter Net Revenue], [Prior Quarter Net Revenue])
+		formatString: 0.0%;[Red]-0.0%
+		displayFolder: Time Intelligence
+		lineageTag: 619289df-8f2b-45cc-9597-36b9d7fd6519
+
+	/// Governed prior quarter contribution margin measure; use this measure instead of implicit aggregation.
+	measure 'Prior Quarter Contribution Margin' = CALCULATE([Contribution Margin], DATEADD('Date'[Date], -1, QUARTER))
+		formatString: €#,0
+		displayFolder: Time Intelligence
+		lineageTag: dabc6c4f-f9af-4b07-8fb5-46c6c86e5b45
+
+	/// Governed contribution margin qoq delta measure; use this measure instead of implicit aggregation.
+	measure 'Contribution Margin QoQ Delta' = [Contribution Margin] - [Prior Quarter Contribution Margin]
+		formatString: €#,0;[Red]-€#,0
+		displayFolder: Time Intelligence
+		lineageTag: 8e750c55-f926-4c4d-89a2-ce7c2ab68b54
+
+	/// Governed prior quarter margin rate measure; use this measure instead of implicit aggregation.
+	measure 'Prior Quarter Margin Rate' = CALCULATE([Contribution Margin Rate], DATEADD('Date'[Date], -1, QUARTER))
+		formatString: 0.0%
+		displayFolder: Time Intelligence
+		lineageTag: 481c230c-d39c-404b-972b-838ab45ad4e7
+
+	/// Governed margin rate qoq delta pp measure; use this measure instead of implicit aggregation.
+	measure 'Margin Rate QoQ Delta PP' = 100 * ([Contribution Margin Rate] - [Prior Quarter Margin Rate])
+		formatString: 0.0 pp;[Red]-0.0 pp
+		displayFolder: Time Intelligence
+		lineageTag: 76f8a1f5-74e6-4835-895d-39128bfea7da
+
+	/// Governed cohort active customers measure; use this measure instead of implicit aggregation.
+	measure 'Cohort Active Customers' = SUM('Customer Cohorts'[Active Customers])
+		formatString: #,0
+		displayFolder: Retention
+		lineageTag: 52e6497d-87f4-411e-bed4-89a975882b44
+
+	/// Governed cohort size measure; use this measure instead of implicit aggregation.
+	measure 'Cohort Size' = SUM('Customer Cohorts'[Cohort Size])
+		formatString: #,0
+		displayFolder: Retention
+		lineageTag: 3fabb73c-2f74-42bf-a444-401fb909fdef
+
+	/// Governed cohort retention rate measure; use this measure instead of implicit aggregation.
+	measure 'Cohort Retention Rate' = DIVIDE([Cohort Active Customers], [Cohort Size])
+		formatString: 0.0%
+		displayFolder: Retention
+		lineageTag: d7ad3640-8fc9-443f-be32-cb047e105551
+
+	/// Governed repeat purchase rate measure; use this measure instead of implicit aggregation.
+	measure 'Repeat Purchase Rate' = VAR CustomerOrders = SUMMARIZE('Order Profitability', 'Order Profitability'[Customer Key], "Order Count", DISTINCTCOUNT('Order Profitability'[Order ID])) RETURN DIVIDE(COUNTROWS(FILTER(CustomerOrders, [Order Count] >= 2)), COUNTROWS(CustomerOrders))
+		formatString: 0.0%
+		displayFolder: Retention
+		lineageTag: 03204e67-96d0-4bed-9a3c-b3f061b12576
+
+	/// Governed funnel sessions measure; use this measure instead of implicit aggregation.
+	measure 'Funnel Sessions' = SUM('Funnel'[Sessions])
+		formatString: #,0
+		displayFolder: Funnel
+		lineageTag: 67fff792-81e3-462f-b78e-29060938e5d3
+
+	partition 'KPI Measures' = calculated
+		mode: import
+		source = DATATABLE("Metric Key", INTEGER, {{1}})
+

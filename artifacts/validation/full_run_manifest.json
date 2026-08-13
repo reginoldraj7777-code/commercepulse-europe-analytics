@@ -1,0 +1,40 @@
+{
+  "profile": "portfolio",
+  "generated_at_utc": "2026-08-13T19:30:26.247922+00:00",
+  "validated_at_utc": "2026-08-13T19:30:41.574046+00:00",
+  "seed": 20260813,
+  "date_range": {
+    "start": "2025-01-01",
+    "end": "2026-07-31"
+  },
+  "configured_sessions": 1500000,
+  "configured_customers": 60000,
+  "configured_products": 600,
+  "generated_rows": 2530582,
+  "minimum_required_rows": 2000000,
+  "scale_status": "PASS",
+  "quality_status": "PASS",
+  "failed_quality_checks": 0,
+  "clean_rows": 2527989,
+  "quarantined_rows": 2593,
+  "late_arrivals_retained": 10591,
+  "data_classification": "deterministic synthetic operational data plus real ECB reference rates",
+  "files": [
+    {"table": "bridge_market_holiday", "rows": 71, "sha256": "1cba2bd3887f8ea8299bfcf24bd4760e0b5346c7fc418b8073f10595ce16614a"},
+    {"table": "dim_campaign", "rows": 61, "sha256": "d26bb470058ef354cfdd1cdec4c3149d6e036bc3104045147481d0593483c520"},
+    {"table": "dim_channel", "rows": 6, "sha256": "69b7084c115df8dc1b200a97b481d943a2dce8ee6a9cd973284c85181b3a169c"},
+    {"table": "dim_customer", "rows": 60000, "sha256": "7602068be4b954e04f7b43176fc1c3e764e4f5260c24f0f76f0097107a36264e"},
+    {"table": "dim_date", "rows": 577, "sha256": "12b82fac012334577849558028d3223426d549543086351d28338bb6cf952add"},
+    {"table": "dim_geography", "rows": 10, "sha256": "c5df75333aab76adebaaa08601616e8d16f14bf596cd0b095c9bc888603be4b9"},
+    {"table": "dim_product", "rows": 600, "sha256": "9f435fb2b7c1e56aaa3e5f090791931ea8e15afdee98927d9917672baa5d9cd2"},
+    {"table": "fact_fulfillment", "rows": 210947, "sha256": "032a1c9acc1e943b8efd60f51857861d48b7e1c2a5245e3b0efaa8d441288a30"},
+    {"table": "fact_inventory_snapshot", "rows": 114000, "sha256": "b99a4a9440c50113645f3053d81bd2ffc71ede1b2ab86680eb0322b58ea52e6f"},
+    {"table": "fact_marketing_spend", "rows": 34620, "sha256": "5eb890ae31aeb83fcd8994d84303da3e11d3414afc589f85ef7982172536c658"},
+    {"table": "fact_order_items", "rows": 344369, "sha256": "5280fc6009c9aff3193a5b7593b0e19359a23abb872dce719fb2a771c2b5ba46"},
+    {"table": "fact_orders", "rows": 214890, "sha256": "cf31ee3151d92ff29c0a22b20363fc712581ae23360cbf0ed905df99fe49efb6"},
+    {"table": "fact_returns", "rows": 46084, "sha256": "5c3c91143bd45f87e622834ffed4f67e045bee8fea6ebac2b299c03b92121226"},
+    {"table": "fact_sessions", "rows": 1500899, "sha256": "022562419b1f63d3cc8b267229a2e3ce8ef817aa8a82893d4b92c39fa9d1f7cf"},
+    {"table": "fact_targets", "rows": 1140, "sha256": "6c20c09ea1c985ce7644069fc65997c6546260c5ef0d47c38d557ce7531181b0"},
+    {"table": "ref_fx_rates", "rows": 2308, "sha256": "a3d21a6cb6c29fd22b6af158fcf657a4ca336815b54c14369ac176dd705a89f7"}
+  ]
+}

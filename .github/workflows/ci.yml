@@ -1,0 +1,65 @@
+name: commercepulse-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: commercepulse
+          POSTGRES_USER: commercepulse
+          POSTGRES_PASSWORD: commercepulse_local_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U commercepulse -d commercepulse"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: commercepulse
+      POSTGRES_USER: commercepulse
+      POSTGRES_PASSWORD: commercepulse_local_only
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: powerbi/package-lock.json
+      - name: Install Python dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Generate, clean, and analyze CI scenario
+        run: python -m commercepulse.cli all --profile ci --data-root data/sample --artifact-root artifacts
+      - name: Load PostgreSQL and build dbt marts
+        run: |
+          python -m commercepulse.cli load-postgres --input data/sample/clean
+          dbt build --project-dir dbt --profiles-dir dbt
+      - name: Execute notebook
+        run: |
+          python scripts/build_notebook.py
+          python scripts/execute_notebook.py notebooks/commercepulse_decision_analysis.ipynb
+      - name: Python and SQL quality gates
+        run: |
+          ruff check src tests scripts
+          sqlfluff lint dbt/models
+          sqlfluff lint sql/analysis --templater raw
+          pytest
+      - name: Install and validate Power BI source
+        working-directory: powerbi
+        run: |
+          npm ci
+          node_modules/.bin/powerbi-report-author --pretty validate CommercePulse.pbip
+      - name: Validate release contracts
+        run: python scripts/validate_project.py

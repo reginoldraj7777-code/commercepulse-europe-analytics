@@ -1,0 +1,92 @@
+relationship 'Relationship 01'
+	fromColumn: 'Order Profitability'.'Order Date'
+	toColumn: Date.Date
+
+relationship 'Relationship 02'
+	fromColumn: 'Order Profitability'.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 03'
+	fromColumn: 'Order Profitability'.'Channel Key'
+	toColumn: Channel.'Channel Key'
+
+relationship 'Relationship 04'
+	fromColumn: 'Order Profitability'.'Product Key'
+	toColumn: Product.'Product Key'
+
+relationship 'Relationship 05'
+	fromColumn: 'Order Profitability'.'Customer Key'
+	toColumn: Customer.'Customer Key'
+
+relationship 'Relationship 06'
+	fromColumn: Sessions.'Date Key'
+	toColumn: Date.'Date Key'
+
+relationship 'Relationship 07'
+	fromColumn: Sessions.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 08'
+	fromColumn: Sessions.'Channel Key'
+	toColumn: Channel.'Channel Key'
+
+relationship 'Relationship 09'
+	fromColumn: Sessions.'Customer Key'
+	toColumn: Customer.'Customer Key'
+
+relationship 'Relationship 10'
+	fromColumn: 'Monthly Executive'.'Month Start'
+	toColumn: Date.Date
+
+relationship 'Relationship 11'
+	fromColumn: 'Target Variance'.'Month Start'
+	toColumn: Date.Date
+
+relationship 'Relationship 12'
+	fromColumn: 'Target Variance'.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 13'
+	fromColumn: 'Target Variance'.'Channel Key'
+	toColumn: Channel.'Channel Key'
+
+relationship 'Relationship 14'
+	fromColumn: 'Channel Profitability'.'Month Start'
+	toColumn: Date.Date
+
+relationship 'Relationship 15'
+	fromColumn: 'Channel Profitability'.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 16'
+	fromColumn: 'Channel Profitability'.'Channel Key'
+	toColumn: Channel.'Channel Key'
+
+relationship 'Relationship 17'
+	fromColumn: 'Customer Cohorts'.'Cohort Month'
+	toColumn: Date.Date
+
+relationship 'Relationship 18'
+	fromColumn: Inventory.'Snapshot Date'
+	toColumn: Date.Date
+
+relationship 'Relationship 19'
+	fromColumn: Inventory.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 20'
+	fromColumn: Inventory.'Product Key'
+	toColumn: Product.'Product Key'
+
+relationship 'Relationship 21'
+	fromColumn: Operations.'Month Start'
+	toColumn: Date.Date
+
+relationship 'Relationship 22'
+	fromColumn: Operations.'Market Key'
+	toColumn: Market.'Market Key'
+
+relationship 'Relationship 23'
+	fromColumn: 'Product Returns'.'Month Start'
+	toColumn: Date.Date
+

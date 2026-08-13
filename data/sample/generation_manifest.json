@@ -1,0 +1,218 @@
+{
+  "project": "CommercePulse Europe",
+  "profile": {
+    "name": "ci",
+    "start_date": "2025-01-01",
+    "end_date": "2025-06-30",
+    "customers": 3000,
+    "products": 120,
+    "sessions": 60000,
+    "inventory_frequency": "MS",
+    "seed": 20260813,
+    "timezone": "Europe/Berlin",
+    "markets": [
+      "DE",
+      "AT",
+      "NL",
+      "FR",
+      "ES",
+      "IT",
+      "BE",
+      "PL",
+      "SE",
+      "GB"
+    ],
+    "currencies": {
+      "DE": "EUR",
+      "AT": "EUR",
+      "NL": "EUR",
+      "FR": "EUR",
+      "ES": "EUR",
+      "IT": "EUR",
+      "BE": "EUR",
+      "PL": "PLN",
+      "SE": "SEK",
+      "GB": "GBP"
+    }
+  },
+  "generated_at_utc": "2026-08-13T18:57:21.108608+00:00",
+  "data_classification": "deterministic synthetic operational data plus real ECB reference rates",
+  "scenario_disclosure": "All customers, sessions, orders, products, marketing, fulfillment, returns, inventory, targets, and findings are synthetic. ECB exchange-rate observations are real reference data.",
+  "seed": 20260813,
+  "total_rows": 115397,
+  "files": [
+    {
+      "table": "bridge_market_holiday",
+      "rows": 22,
+      "columns": 5,
+      "bytes": 3757,
+      "sha256": "66022e5d151e8081f8bfd47aa53ff245c7c2d08a18e625ad7744ad7cc23a7d73"
+    },
+    {
+      "table": "dim_campaign",
+      "rows": 61,
+      "columns": 8,
+      "bytes": 5838,
+      "sha256": "5de6bfc481ad3b5e7d2dc2d1d0ca98478e6c2c241f8ef8a2642b664d040c6439"
+    },
+    {
+      "table": "dim_channel",
+      "rows": 6,
+      "columns": 4,
+      "bytes": 2908,
+      "sha256": "69b7084c115df8dc1b200a97b481d943a2dce8ee6a9cd973284c85181b3a169c"
+    },
+    {
+      "table": "dim_customer",
+      "rows": 3000,
+      "columns": 9,
+      "bytes": 32017,
+      "sha256": "600eb342bd01d353aca03b44b1b9c436717e7462856a29d6bc2c8c6510d4d1e0"
+    },
+    {
+      "table": "dim_date",
+      "rows": 181,
+      "columns": 13,
+      "bytes": 10438,
+      "sha256": "f81caa0b70d7959c8fc5c4fa7eec65c1a2bdd25d7c915eb68cbf02cbbfb31e65"
+    },
+    {
+      "table": "dim_geography",
+      "rows": 10,
+      "columns": 8,
+      "bytes": 5629,
+      "sha256": "c5df75333aab76adebaaa08601616e8d16f14bf596cd0b095c9bc888603be4b9"
+    },
+    {
+      "table": "dim_product",
+      "rows": 120,
+      "columns": 12,
+      "bytes": 12569,
+      "sha256": "538559479b38df8b3f43b0e2b21f2c0c66446ab3b8d51618cf07ed44f9a14226"
+    },
+    {
+      "table": "fact_fulfillment",
+      "rows": 8536,
+      "columns": 13,
+      "bytes": 147863,
+      "sha256": "e777b442c7665694573a4b06226801ef72965ce1bb1dee4a075eeaed0f8dee11"
+    },
+    {
+      "table": "fact_inventory_snapshot",
+      "rows": 7200,
+      "columns": 11,
+      "bytes": 40335,
+      "sha256": "99217ee917b8e7f21683e32ef06931d468b8c23dca39d11930c81e5b0d8d6c4c"
+    },
+    {
+      "table": "fact_marketing_spend",
+      "rows": 10860,
+      "columns": 12,
+      "bytes": 107609,
+      "sha256": "50b46c064e252f559de1d7321ffe4d909db76cbe8da21b03df9f81ace0837bc7"
+    },
+    {
+      "table": "fact_order_items",
+      "rows": 13763,
+      "columns": 11,
+      "bytes": 281582,
+      "sha256": "c7818ad440339750fa3313e8dfb9ce3c1714eafb58fb1871add240971a57c3a8"
+    },
+    {
+      "table": "fact_orders",
+      "rows": 8698,
+      "columns": 19,
+      "bytes": 392876,
+      "sha256": "025757bba8de54d7278bd55e54c3ed289bde502f2f1dca7de1b82e378f5177b9"
+    },
+    {
+      "table": "fact_returns",
+      "rows": 1820,
+      "columns": 13,
+      "bytes": 54745,
+      "sha256": "59476eca8b99be265c3241f6b31866aa0ce66278eb5eb478230619ed4b6d9fd9"
+    },
+    {
+      "table": "fact_sessions",
+      "rows": 60036,
+      "columns": 15,
+      "bytes": 1667997,
+      "sha256": "0cd9ede9cafe51509575c996afd9a0d188f63adfb07c73735c6dabe5752979d7"
+    },
+    {
+      "table": "fact_targets",
+      "rows": 360,
+      "columns": 12,
+      "bytes": 12618,
+      "sha256": "983d3569ec971ae16aea2ec699d7126e3e8c3e949b8e4f41ea3b6045bf849676"
+    },
+    {
+      "table": "ref_fx_rates",
+      "rows": 724,
+      "columns": 6,
+      "bytes": 9822,
+      "sha256": "26b7a0256738906ac0321affe3470eafcb5779671e53603e560a63ed78a878ae"
+    }
+  ],
+  "injected_defects": [
+    {
+      "rule": "duplicate_session_id",
+      "table": "fact_sessions",
+      "injected_rows": 36
+    },
+    {
+      "rule": "missing_session_market",
+      "table": "fact_sessions",
+      "injected_rows": 24
+    },
+    {
+      "rule": "invalid_order_item_product",
+      "table": "fact_order_items",
+      "injected_rows": 4
+    },
+    {
+      "rule": "nonpositive_order_item_quantity",
+      "table": "fact_order_items",
+      "injected_rows": 5
+    },
+    {
+      "rule": "negative_marketing_spend",
+      "table": "fact_marketing_spend",
+      "injected_rows": 10
+    },
+    {
+      "rule": "invalid_fulfillment_sequence",
+      "table": "fact_fulfillment",
+      "injected_rows": 6
+    },
+    {
+      "rule": "orphan_return_item",
+      "table": "fact_returns",
+      "injected_rows": 1
+    },
+    {
+      "rule": "negative_inventory_on_hand",
+      "table": "fact_inventory_snapshot",
+      "injected_rows": 5
+    },
+    {
+      "rule": "late_arrival_over_14_days",
+      "table": "fact_sessions",
+      "injected_rows": 384
+    }
+  ],
+  "external_sources": [
+    {
+      "name": "European Central Bank euro foreign exchange reference rates",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "cached_file": "data/reference/ecb/eurofxref-hist.csv",
+      "usage": "local-currency-to-EUR conversion; rates are local currency units per EUR"
+    }
+  ],
+  "known_process_shifts": [
+    "Mobile page latency rises in Sweden and the United Kingdom from 2026-04-01.",
+    "North-hub transit time rises from 2026-04-01.",
+    "Apparel paid-social promotions in Sweden and the United Kingdom use deeper discounts from 2026-04-01.",
+    "German electronics replenishment pressure rises from 2026-04-01."
+  ]
+}

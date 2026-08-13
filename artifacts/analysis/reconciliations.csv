@@ -1,0 +1,4 @@
+check,observed_delta,threshold,status
+Item contribution identity,0.0,1e-06,PASS
+Monthly net revenue reconciles to item detail,2.3283064365386963e-10,0.02,PASS
+Marketing allocation coverage,0.0,1750.939579242316,PASS

@@ -1,0 +1,21 @@
+select
+    order_id::bigint as order_id,
+    session_id::bigint as session_id,
+    customer_key::bigint as customer_key,
+    market_key::smallint as market_key,
+    channel_key::smallint as channel_key,
+    campaign_key::integer as campaign_key,
+    order_ts::timestamp as order_ts,
+    date_key::integer as date_key,
+    currency_code::text as currency_code,
+    fx_local_per_eur::double precision as fx_local_per_eur,
+    gross_revenue_local::double precision as gross_revenue_local,
+    discount_local::double precision as discount_local,
+    net_revenue_local::double precision as net_revenue_local,
+    shipping_revenue_local::double precision as shipping_revenue_local,
+    tax_local::double precision as tax_local,
+    item_quantity::integer as item_quantity,
+    order_status::text as order_status,
+    loaded_at::timestamp as loaded_at,
+    is_late_arrival::boolean as is_late_arrival
+from {{ source('raw', 'fact_orders') }}

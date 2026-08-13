@@ -1,0 +1,29 @@
+profiles:
+  ci:
+    start_date: "2025-01-01"
+    end_date: "2025-06-30"
+    customers: 3000
+    products: 120
+    sessions: 60000
+    inventory_frequency: "MS"
+  portfolio:
+    start_date: "2025-01-01"
+    end_date: "2026-07-31"
+    customers: 60000
+    products: 600
+    sessions: 1500000
+    inventory_frequency: "MS"
+  seed: 20260813
+  timezone: "Europe/Berlin"
+  markets: [DE, AT, NL, FR, ES, IT, BE, PL, SE, GB]
+  currencies:
+    DE: EUR
+    AT: EUR
+    NL: EUR
+    FR: EUR
+    ES: EUR
+    IT: EUR
+    BE: EUR
+    PL: PLN
+    SE: SEK
+    GB: GBP

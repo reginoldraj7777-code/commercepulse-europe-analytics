@@ -1,0 +1,4 @@
+month_start,forecast_net_revenue_eur,forecast_lower_95_eur,forecast_upper_95_eur,model
+2025-07-01,173756.29894419966,151739.76537047955,195772.83251791977,OLS trend plus annual sine/cosine terms
+2025-08-01,151707.8588680811,129691.325294361,173724.3924418012,OLS trend plus annual sine/cosine terms
+2025-09-01,129284.04174222813,107267.50816850804,151300.57531594823,OLS trend plus annual sine/cosine terms

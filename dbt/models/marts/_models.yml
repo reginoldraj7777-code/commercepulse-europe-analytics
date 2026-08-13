@@ -1,0 +1,138 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Conformed calendar dimension at one row per date.
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+
+  - name: dim_market
+    description: Conformed European market and local-currency attributes.
+    columns:
+      - name: market_key
+        tests: [not_null, unique]
+      - name: market_code
+        tests: [not_null, unique]
+
+  - name: dim_channel
+    description: Conformed acquisition and order channel.
+    columns:
+      - name: channel_key
+        tests: [not_null, unique]
+
+  - name: dim_customer
+    description: Privacy-safe synthetic customer dimension; contains no names, emails, or addresses.
+    columns:
+      - name: customer_key
+        tests: [not_null, unique]
+      - name: home_market_key
+        tests:
+          - relationships:
+              to: ref('dim_market')
+              field: market_key
+
+  - name: dim_product
+    description: Product hierarchy, list price, cost, and operational attributes.
+    columns:
+      - name: product_key
+        tests: [not_null, unique]
+      - name: list_price_eur
+        tests: [not_null, nonnegative]
+
+  - name: fct_sessions
+    description: One row per web or app session.
+    columns:
+      - name: session_id
+        tests: [not_null, unique]
+      - name: market_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_market')
+              field: market_key
+      - name: device_type
+        tests:
+          - accepted_values:
+              values: [Mobile, Desktop, Tablet]
+
+  - name: fct_order_item_profitability
+    description: Atomic profitability mart with refunds, recoveries, fulfillment, and allocated marketing cost.
+    columns:
+      - name: order_item_id
+        tests: [not_null, unique]
+      - name: order_id
+        tests: [not_null]
+      - name: product_key
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: quantity
+        tests: [not_null, nonnegative]
+      - name: gross_revenue_eur
+        tests: [not_null, nonnegative]
+
+  - name: fct_inventory
+    description: Monthly product-market inventory snapshots and estimated lost opportunity.
+    columns:
+      - name: inventory_snapshot_id
+        tests: [not_null, unique]
+      - name: on_hand_units
+        tests: [not_null, nonnegative]
+
+  - name: mart_monthly_executive
+    description: Reconciled monthly KPI scorecard for the management report.
+    columns:
+      - name: month_start
+        tests: [not_null, unique]
+
+  - name: mart_target_variance
+    description: Actual versus operating target by month, market, and channel.
+    columns:
+      - name: month_start
+        tests: [not_null]
+
+  - name: mart_customer_cohorts
+    description: First-purchase monthly cohorts with month-zero through month-twelve retention.
+    columns:
+      - name: cohort_month
+        tests: [not_null]
+      - name: month_index
+        tests: [not_null, nonnegative]
+
+  - name: mart_operations
+    description: Fulfillment reliability and cost by month, market, hub, and carrier.
+
+  - name: mart_product_returns
+    description: Product return performance and contribution margin by month and market.
+
+  - name: mart_channel_profitability
+    description: Revenue, marketing spend, attributed ROAS, and contribution margin by channel.
+
+exposures:
+  - name: commercepulse_power_bi
+    type: dashboard
+    maturity: high
+    description: Six-page CommercePulse leadership decision report.
+    depends_on:
+      - ref('mart_monthly_executive')
+      - ref('mart_target_variance')
+      - ref('mart_customer_cohorts')
+      - ref('mart_operations')
+      - ref('mart_product_returns')
+      - ref('mart_channel_profitability')
+    owner:
+      name: BI and Analytics Lead
+      email: portfolio@example.invalid
+
+  - name: commercepulse_excel_manager_pack
+    type: analysis
+    maturity: high
+    description: Manager exception workflow and action register.
+    depends_on:
+      - ref('mart_monthly_executive')
+      - ref('mart_target_variance')
+    owner:
+      name: Finance Business Partner
+      email: portfolio@example.invalid

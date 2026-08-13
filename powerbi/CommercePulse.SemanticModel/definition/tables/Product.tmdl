@@ -1,0 +1,78 @@
+/// Product master with category hierarchy, reference price, cost, and supply attributes.
+table Product
+	lineageTag: 838293f0-5a93-4a6c-ba8d-0fdc984c8175
+
+	column 'Product Key'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: 8e040d23-833f-45b2-9720-e538c30bbdd7
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column SKU
+		dataType: string
+		lineageTag: 86e2f447-32f2-4855-85f6-060099b35bf3
+		summarizeBy: none
+		sourceColumn: sku
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: e58e43d1-84f2-43a8-bb56-69397dd18dbc
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column Category
+		dataType: string
+		lineageTag: 245851bc-3b7c-42d2-82bc-cc1392ccc8f4
+		summarizeBy: none
+		sourceColumn: category
+
+	column Subcategory
+		dataType: string
+		lineageTag: af50bd60-f6d1-4fa3-9eee-a6bde62b0ade
+		summarizeBy: none
+		sourceColumn: subcategory
+
+	column Brand
+		dataType: string
+		lineageTag: 59ee769b-6e45-4693-8f9e-3e510f35e43b
+		summarizeBy: none
+		sourceColumn: brand
+
+	column 'List Price EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 4c13afb9-ab99-476f-b434-720a08903a16
+		summarizeBy: none
+		sourceColumn: list_price_eur
+
+	column 'Standard Cost EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 4c0dca5d-5162-4c85-a35d-fbce64e78f53
+		summarizeBy: none
+		sourceColumn: standard_cost_eur
+
+	column 'Base Return Probability'
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0ef5e99b-3c49-4cfc-9a42-2c38c8405659
+		summarizeBy: none
+		sourceColumn: base_return_probability
+
+	column 'Supplier Lead Time Days'
+		dataType: int64
+		lineageTag: fe9de0e5-6bc1-47ce-ba55-a8679d66111a
+		summarizeBy: none
+		sourceColumn: supplier_lead_time_days
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "dim_product"]}[Data]
+				in
+				    Data
+

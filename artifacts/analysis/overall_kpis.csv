@@ -1,0 +1,13 @@
+metric,value,unit
+Net Revenue,1099158.2427503304,EUR
+Contribution Margin,131599.00773581397,EUR
+Contribution Margin Rate,0.1197270807945951,rate
+Conversion Rate,0.1449079631852741,rate
+Conversion Rate CI Low,0.14211354126562414,rate
+Conversion Rate CI High,0.14774786943445223,rate
+Return Rate,0.12496757457846952,rate
+Return Rate CI Low,0.1198414415251385,rate
+Return Rate CI High,0.13028051863119108,rate
+Repeat Purchase Rate,0.8250265111346765,rate
+Marketing Allocation Coverage,1.0,rate
+Fulfillment Coverage,0.9992965177629265,rate

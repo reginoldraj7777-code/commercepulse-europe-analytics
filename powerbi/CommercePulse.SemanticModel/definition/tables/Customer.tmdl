@@ -1,0 +1,64 @@
+/// Pseudonymous generated customer dimension for retention and segment analysis.
+table Customer
+	lineageTag: 32568ed0-4ba1-46f9-a058-12c0b3227be1
+
+	column 'Customer Key'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: bb7dae26-13d6-4770-9553-a92f8a887b19
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: d20edeb1-6710-435c-b7e0-59106d3848cb
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column 'Acquisition Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0478cb5a-a0cf-4d4a-a014-503764f51f23
+		summarizeBy: none
+		sourceColumn: acquisition_date
+
+	column 'Home Market Key'
+		dataType: int64
+		lineageTag: 2ba7905d-393a-4188-a294-d772b9b554ed
+		summarizeBy: none
+		sourceColumn: home_market_key
+
+	column 'Acquisition Channel Key'
+		dataType: int64
+		lineageTag: d6b3e019-caf2-4ae4-862f-04d0c6c4d6db
+		summarizeBy: none
+		sourceColumn: acquisition_channel_key
+
+	column 'Customer Segment'
+		dataType: string
+		lineageTag: 90d3a587-8960-4eae-bb0c-06d9fa91d53d
+		summarizeBy: none
+		sourceColumn: customer_segment
+
+	column 'Loyalty Tier'
+		dataType: string
+		lineageTag: 35f4ea8c-0280-46b2-a9ca-860aad99f941
+		summarizeBy: none
+		sourceColumn: loyalty_tier
+
+	column 'Marketing Consent'
+		dataType: boolean
+		lineageTag: 0ff7ff3e-ccfc-4388-aed4-8b8075ba50ff
+		summarizeBy: none
+		sourceColumn: marketing_consent
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "dim_customer"]}[Data]
+				in
+				    Data
+

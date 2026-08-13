@@ -1,0 +1,86 @@
+/// Monthly market-channel actual-versus-plan fact.
+table 'Target Variance'
+	lineageTag: 929535fe-0322-4357-98da-5a4f70ecabe4
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 46f9f4c9-fadb-41c2-b248-49b62edfea31
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: aaad2e58-3af4-43d9-8e2a-c719f2545689
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Channel Key'
+		dataType: int64
+		lineageTag: 60e3031a-8029-4a2d-bcf1-67464dfaf992
+		summarizeBy: none
+		sourceColumn: channel_key
+
+	column 'Actual Orders'
+		dataType: int64
+		lineageTag: cbd9f5f7-812e-430d-a39d-5034125f8477
+		summarizeBy: sum
+		sourceColumn: actual_orders
+
+	column 'Orders Target'
+		dataType: int64
+		lineageTag: d9cf3eae-6dd3-498c-a397-0a9d4c78e82f
+		summarizeBy: sum
+		sourceColumn: orders_target
+
+	column 'Actual Net Revenue EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: b2011576-6083-49b1-ba1b-d68fe9b4049b
+		summarizeBy: sum
+		sourceColumn: actual_net_revenue_eur
+
+	column 'Net Revenue Target EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 23ede4ff-bbf0-4d9f-a8a6-99e895255272
+		summarizeBy: sum
+		sourceColumn: net_revenue_target_eur
+
+	column 'Net Revenue Variance EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: f4ad8572-d775-4dee-9ae1-01433e9487ee
+		summarizeBy: sum
+		sourceColumn: net_revenue_variance_eur
+
+	column 'Actual Contribution Margin EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: ccb8320a-2d78-4a45-b728-b8ad9300a961
+		summarizeBy: sum
+		sourceColumn: actual_contribution_margin_eur
+
+	column 'Contribution Margin Target EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 27b6dad0-cbb2-4bec-b095-cb5e2258f97b
+		summarizeBy: sum
+		sourceColumn: contribution_margin_target_eur
+
+	column 'Contribution Margin Variance EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: d1405c13-141e-4c9b-9d16-a2b3ab0b5dbe
+		summarizeBy: sum
+		sourceColumn: contribution_margin_variance_eur
+
+	partition 'Target Variance' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_target_variance"]}[Data]
+				in
+				    Data
+

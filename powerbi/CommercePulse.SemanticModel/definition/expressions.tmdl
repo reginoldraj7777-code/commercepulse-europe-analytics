@@ -1,0 +1,8 @@
+/// PostgreSQL server parameter.
+expression Server = "localhost" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: c3b82a66-9d0b-43e8-9078-8c80ec008e90
+
+/// PostgreSQL database parameter.
+expression Database = "commercepulse" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 11f34be3-9b17-4665-be78-421b5a69e632
+

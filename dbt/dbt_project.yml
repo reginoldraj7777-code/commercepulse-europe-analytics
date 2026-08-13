@@ -1,0 +1,30 @@
+name: commercepulse
+version: "1.0.0"
+config-version: 2
+profile: commercepulse
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  commercepulse:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: analytics
+      +materialized: table
+      core:
+        +schema: core
+      finance:
+        +schema: finance
+      growth:
+        +schema: growth
+      operations:
+        +schema: operations

@@ -1,0 +1,77 @@
+/// Product-market-month inventory state and estimated stockout opportunity.
+table Inventory
+	lineageTag: bf7e8986-6f73-430b-90cf-cd82359dc86a
+
+	column 'Inventory Snapshot ID'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: f2914812-c98f-4ee2-b2cf-84684d64ce0e
+		summarizeBy: none
+		sourceColumn: inventory_snapshot_id
+
+	column 'Snapshot Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7b15276f-7f2b-4d48-971b-e9a39611202c
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+	column 'Product Key'
+		dataType: int64
+		lineageTag: d575aaed-627f-4a9f-885a-35016a2440e7
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: beaed609-16a3-4711-ae4b-5a7551c0da5e
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'On Hand Units'
+		dataType: int64
+		lineageTag: bb549501-b6cc-4452-941c-3f119f6b86de
+		summarizeBy: sum
+		sourceColumn: on_hand_units
+
+	column 'Reorder Point Units'
+		dataType: int64
+		lineageTag: 509739cf-1ad4-4a98-87ea-f8b4a93c5e7b
+		summarizeBy: sum
+		sourceColumn: reorder_point_units
+
+	column 'Inbound Units'
+		dataType: int64
+		lineageTag: 7302d743-5843-489f-8a60-4ca839ac6d99
+		summarizeBy: sum
+		sourceColumn: inbound_units
+
+	column 'Stockout Flag'
+		dataType: boolean
+		lineageTag: 5708fa5d-71ce-4f23-b6ff-5032b29ea120
+		summarizeBy: none
+		sourceColumn: stockout_flag
+
+	column 'Estimated Lost Units'
+		dataType: int64
+		lineageTag: fb6606bf-ef68-446e-8145-54a18e692f7a
+		summarizeBy: sum
+		sourceColumn: estimated_lost_units
+
+	column 'Estimated Lost Revenue EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: e1df72ce-aa94-46e1-b8e8-29f83c7e8851
+		summarizeBy: sum
+		sourceColumn: estimated_lost_revenue_eur
+
+	partition Inventory = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "fct_inventory"]}[Data]
+				in
+				    Data
+

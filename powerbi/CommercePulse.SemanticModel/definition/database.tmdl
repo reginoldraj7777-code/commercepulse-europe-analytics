@@ -1,0 +1,4 @@
+/// Governed semantic model for synthetic European omnichannel commerce analytics.
+database 'CommercePulse Europe'
+	compatibilityLevel: 1702
+

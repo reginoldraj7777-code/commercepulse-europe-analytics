@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Clean, validated CommercePulse tables loaded from Parquet.
+    tables:
+      - name: dim_date
+      - name: dim_geography
+      - name: dim_channel
+      - name: dim_campaign
+      - name: dim_customer
+      - name: dim_product
+      - name: ref_fx_rates
+      - name: bridge_market_holiday
+      - name: fact_sessions
+      - name: fact_orders
+      - name: fact_order_items
+      - name: fact_marketing_spend
+      - name: fact_fulfillment
+      - name: fact_returns
+      - name: fact_inventory_snapshot
+      - name: fact_targets

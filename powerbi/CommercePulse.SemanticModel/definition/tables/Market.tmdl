@@ -1,0 +1,58 @@
+/// Ten European commerce markets with local-currency and fulfillment attributes.
+table Market
+	lineageTag: 434e3729-0d82-44ca-87d3-43e141ed095c
+
+	column 'Market Key'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: 95acfd35-000f-40ca-a253-68b733a78233
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Market Code'
+		dataType: string
+		lineageTag: f41944a4-f3e6-46d6-b9ee-2c76bb3f5f40
+		summarizeBy: none
+		sourceColumn: market_code
+
+	column 'Market Name'
+		dataType: string
+		lineageTag: 86c223eb-02c6-4d4a-b8a5-f2be3b941ede
+		summarizeBy: none
+		sourceColumn: market_name
+
+	column 'Region Cluster'
+		dataType: string
+		lineageTag: 721987c0-e9a4-4d5c-a7a5-d341b60657cf
+		summarizeBy: none
+		sourceColumn: region_cluster
+
+	column 'Currency Code'
+		dataType: string
+		lineageTag: 49fb7ebe-f543-4dbf-ba7e-cb5186e8cc84
+		summarizeBy: none
+		sourceColumn: currency_code
+
+	column 'VAT Rate'
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e4d3dd8b-49af-4a84-97e1-9e78e08caf3e
+		summarizeBy: none
+		sourceColumn: vat_rate
+
+	column 'Fulfillment Hub'
+		dataType: string
+		lineageTag: 5028a7e7-47df-4f50-8c85-0a90e3421bc4
+		summarizeBy: none
+		sourceColumn: fulfillment_hub
+
+	partition Market = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "dim_market"]}[Data]
+				in
+				    Data
+

@@ -1,0 +1,33 @@
+/// Ordered commerce funnel stages and unique session counts.
+table Funnel
+	lineageTag: f9173a07-fdc9-4cc6-98cd-2fad7512e8bc
+
+	column 'Stage Order'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: a8c15fa6-257f-4a3f-b6ab-4df14c4d22ec
+		summarizeBy: none
+		sourceColumn: stage_order
+
+	column Stage
+		dataType: string
+		lineageTag: b0ad9f26-3eed-409f-a77a-057955b8cdea
+		summarizeBy: none
+		sourceColumn: stage
+
+	column Sessions
+		dataType: int64
+		lineageTag: f3b26715-71bf-4d04-b5fc-67de6a1b3665
+		summarizeBy: sum
+		sourceColumn: sessions
+
+	partition Funnel = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_funnel"]}[Data]
+				in
+				    Data
+

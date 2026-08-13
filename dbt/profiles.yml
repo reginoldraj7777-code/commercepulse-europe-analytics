@@ -1,0 +1,13 @@
+commercepulse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('POSTGRES_USER', 'commercepulse') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'commercepulse_local_only') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'commercepulse') }}"
+      schema: analytics_dev
+      threads: 4
+      connect_timeout: 10

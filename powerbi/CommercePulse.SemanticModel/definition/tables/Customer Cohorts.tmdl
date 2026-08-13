@@ -1,0 +1,45 @@
+/// First-purchase cohort retention through month twelve.
+table 'Customer Cohorts'
+	lineageTag: 2eda08b5-8fce-4ba5-b53c-74023d7cb478
+
+	column 'Cohort Month'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8cbb9df2-db06-4060-99d0-63ae175b7958
+		summarizeBy: none
+		sourceColumn: cohort_month
+
+	column 'Month Index'
+		dataType: int64
+		lineageTag: cb26e197-2053-4365-b9d7-c5c1355c69e7
+		summarizeBy: none
+		sourceColumn: month_index
+
+	column 'Active Customers'
+		dataType: int64
+		lineageTag: 6766a973-9931-4a86-a947-4fd07f9cc423
+		summarizeBy: sum
+		sourceColumn: active_customers
+
+	column 'Cohort Size'
+		dataType: int64
+		lineageTag: 6d77c2c7-c69f-41c6-af07-44e81d402f20
+		summarizeBy: sum
+		sourceColumn: cohort_size
+
+	column 'Retention Rate'
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1d8021b1-05bd-4899-b48e-2e13aa6354f9
+		summarizeBy: none
+		sourceColumn: retention_rate
+
+	partition 'Customer Cohorts' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_customer_cohorts"]}[Data]
+				in
+				    Data
+

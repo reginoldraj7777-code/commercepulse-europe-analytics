@@ -1,0 +1,68 @@
+{
+  "data": {
+    "reportPath": "/workspace/scratch/1999fdbb942e/commercepulse-europe-analytics/powerbi/CommercePulse.Report",
+    "activePage": "4742e1e6937d814ce78f",
+    "pages": [
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/page.json",
+        "name": "4742e1e6937d814ce78f",
+        "displayName": "Executive Overview",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 1,
+        "isActive": true
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/page.json",
+        "name": "5136e737c23a8ed911f3",
+        "displayName": "Growth & Profitability",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 2,
+        "isActive": false
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/page.json",
+        "name": "571349009224c23efbfb",
+        "displayName": "Customer & Retention",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 3,
+        "isActive": false
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/page.json",
+        "name": "febe4198422e8bba879d",
+        "displayName": "Product & Conversion",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 4,
+        "isActive": false
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/page.json",
+        "name": "d17cbae5e73cb06aa65c",
+        "displayName": "Operations & Returns",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 5,
+        "isActive": false
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/page.json",
+        "name": "410f2f0111c38c0ed879",
+        "displayName": "Root Cause & Actions",
+        "displayOption": "FitToPage",
+        "width": 1280,
+        "height": 720,
+        "ordinal": 6,
+        "isActive": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "commercepulse-powerbi-build",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-model": "node ../scripts/build_powerbi_model.mjs",
+    "build-report": "node ../scripts/build_powerbi_report.mjs",
+    "validate": "powerbi-report-author validate CommercePulse.pbip --no-schema"
+  },
+  "devDependencies": {
+    "@microsoft/powerbi-modeling-mcp": "0.5.0-beta.12",
+    "@microsoft/powerbi-report-authoring-cli": "0.1.4",
+    "@modelcontextprotocol/sdk": "1.27.1"
+  }
+}

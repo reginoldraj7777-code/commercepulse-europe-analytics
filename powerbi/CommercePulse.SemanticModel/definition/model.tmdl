@@ -1,0 +1,28 @@
+model 'CommercePulse Europe'
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_ProTooling = ["MCP-PBIModeling"]
+
+ref table Date
+ref table Market
+ref table Channel
+ref table Product
+ref table Customer
+ref table 'Order Profitability'
+ref table Sessions
+ref table 'Monthly Executive'
+ref table 'Target Variance'
+ref table 'Channel Profitability'
+ref table 'Customer Cohorts'
+ref table Funnel
+ref table Inventory
+ref table Operations
+ref table 'Product Returns'
+ref table 'KPI Measures'
+

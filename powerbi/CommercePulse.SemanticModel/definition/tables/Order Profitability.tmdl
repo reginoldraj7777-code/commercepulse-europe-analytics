@@ -1,0 +1,147 @@
+/// Atomic order-item finance fact. All profitability measures reconcile at this grain.
+table 'Order Profitability'
+	lineageTag: dbceb36b-bd3a-4340-923e-b8460cffa7bf
+
+	column 'Order Item ID'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: 8cb1d799-f703-4d65-861c-33cc2e7800d0
+		summarizeBy: none
+		sourceColumn: order_item_id
+
+	column 'Order ID'
+		dataType: int64
+		lineageTag: 59b19bc9-a0f1-4405-a5e2-c99bbbb4765e
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column 'Customer Key'
+		dataType: int64
+		lineageTag: 9160ab8b-a86d-4bc8-b22e-6619227a7aa6
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column 'Product Key'
+		dataType: int64
+		lineageTag: f426490d-14a7-4341-a3ff-a52871112cab
+		summarizeBy: none
+		sourceColumn: product_key
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: 4a149124-22fb-44d4-ba30-a977d7ffd751
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Channel Key'
+		dataType: int64
+		lineageTag: e5e9757d-0e70-40ca-88c4-57aa95ca9cd3
+		summarizeBy: none
+		sourceColumn: channel_key
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3c5cd945-1cd5-4bb1-8b8f-f1b327546064
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bf456309-7ef3-4739-bacd-c8360144763d
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column Quantity
+		dataType: int64
+		lineageTag: 4e836123-9bf3-4690-9cd8-feac243858ce
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column 'Units Returned'
+		dataType: int64
+		lineageTag: 5d505ed1-ce2c-4425-94e1-48d61720ac9e
+		summarizeBy: sum
+		sourceColumn: units_returned
+
+	column 'Gross Revenue EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 61810116-2cc2-4ab9-a6f7-abb00b518207
+		summarizeBy: sum
+		sourceColumn: gross_revenue_eur
+
+	column 'Discount EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 279d46b8-f6e6-4853-bda3-08c6cfe9b592
+		summarizeBy: sum
+		sourceColumn: discount_eur
+
+	column 'Refund EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: f8c66eb5-bd82-4195-8600-a97354fbe944
+		summarizeBy: sum
+		sourceColumn: refund_eur
+
+	column 'Net Revenue EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 8e6acd4a-d34b-4fae-9516-16b50cc083d7
+		summarizeBy: sum
+		sourceColumn: net_revenue_eur
+
+	column 'COGS EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 5b6c9d79-dd99-4110-8820-193860f33d00
+		summarizeBy: sum
+		sourceColumn: cogs_eur
+
+	column 'Recovered COGS EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: b93ac4d5-de28-48dc-871c-5b7f8d36db5a
+		summarizeBy: sum
+		sourceColumn: recovered_cogs_eur
+
+	column 'Return Handling Cost EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 101e0e37-cd8f-4226-99d4-16cd4602643b
+		summarizeBy: sum
+		sourceColumn: handling_cost_eur
+
+	column 'Fulfillment Cost EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: d429f051-498c-43f4-8478-262ef2d18c8c
+		summarizeBy: sum
+		sourceColumn: allocated_shipping_cost_eur
+
+	column 'Marketing Spend EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: 4b7206b2-7aea-4965-b825-59643f788778
+		summarizeBy: sum
+		sourceColumn: allocated_marketing_eur
+
+	column 'Contribution Margin EUR'
+		dataType: double
+		formatString: €#,0.00
+		lineageTag: fbc78928-5f45-46c0-b638-9d9536c7e73b
+		summarizeBy: sum
+		sourceColumn: contribution_margin_eur
+
+	partition 'Order Profitability' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "fct_order_item_profitability"]}[Data]
+				in
+				    Data
+

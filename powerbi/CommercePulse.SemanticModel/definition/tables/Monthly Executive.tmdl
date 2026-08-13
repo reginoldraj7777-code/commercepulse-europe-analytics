@@ -1,0 +1,136 @@
+/// Monthly governed scorecard used for trends and management target tracking.
+table 'Monthly Executive'
+	lineageTag: 7e08ec54-3301-4547-a265-7a574248ba0d
+
+	column 'Month Start'
+		dataType: dateTime
+		isUnique
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: ee62c629-de16-492e-85d8-47e4f36db4c4
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column Orders
+		dataType: int64
+		lineageTag: fc3b707d-e806-4e6d-8e60-21ac5314ef59
+		summarizeBy: sum
+		sourceColumn: orders
+
+	column 'Purchasing Customers'
+		dataType: int64
+		lineageTag: 5c5443e6-2a2f-4cc9-be0e-5872c3ea668e
+		summarizeBy: sum
+		sourceColumn: purchasing_customers
+
+	column 'Units Sold'
+		dataType: int64
+		lineageTag: 6ca660e5-a447-4ba1-b350-8a352c9298ad
+		summarizeBy: sum
+		sourceColumn: units_sold
+
+	column 'Units Returned'
+		dataType: int64
+		lineageTag: 7fabc9c4-0445-4226-9a01-52df46685e99
+		summarizeBy: sum
+		sourceColumn: units_returned
+
+	column 'Net Revenue EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 75785a5f-d70a-4ecc-8e8c-6ac904f394d6
+		summarizeBy: sum
+		sourceColumn: net_revenue_eur
+
+	column 'Contribution Margin EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 28bb629e-cde1-4480-8327-f89388bcb34f
+		summarizeBy: sum
+		sourceColumn: contribution_margin_eur
+
+	column 'Marketing Spend EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 31d525e8-af1b-4d4f-be55-8428f6bb7e38
+		summarizeBy: sum
+		sourceColumn: marketing_spend_eur
+
+	column Sessions
+		dataType: int64
+		lineageTag: 49c13eb0-0d7a-40de-a5df-c4756c0330e3
+		summarizeBy: sum
+		sourceColumn: sessions
+
+	column 'Converted Sessions'
+		dataType: int64
+		lineageTag: 8ea1346c-0d15-4537-b485-15512b3e2d2c
+		summarizeBy: sum
+		sourceColumn: converted_sessions
+
+	column 'Average Page Load MS'
+		dataType: double
+		formatString: #,0
+		lineageTag: 18bf50af-8b65-4204-97a5-98d0cfa26108
+		summarizeBy: sum
+		sourceColumn: average_page_load_ms
+
+	column 'Fulfilled Orders'
+		dataType: int64
+		lineageTag: 282aed0d-2ab1-4dcf-bb72-89615d330339
+		summarizeBy: sum
+		sourceColumn: fulfilled_orders
+
+	column 'On Time Orders'
+		dataType: int64
+		lineageTag: e16cc98b-f34d-4e33-84f0-f128a0a81bd9
+		summarizeBy: sum
+		sourceColumn: on_time_orders
+
+	column 'Inventory Snapshots'
+		dataType: int64
+		lineageTag: d53b7c6d-e734-43ab-aa14-563eb6db9494
+		summarizeBy: sum
+		sourceColumn: inventory_snapshots
+
+	column 'Stockout Snapshots'
+		dataType: int64
+		lineageTag: b6f3e5af-3e89-4604-848a-13246ccfc5f6
+		summarizeBy: sum
+		sourceColumn: stockout_snapshots
+
+	column 'Estimated Lost Units'
+		dataType: int64
+		lineageTag: 43a94da0-7a97-4ed4-8dac-4793f9f1bf78
+		summarizeBy: sum
+		sourceColumn: estimated_lost_units
+
+	column 'Net Revenue Target EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 8547b64b-9259-4783-91a8-fbb2e42e2151
+		summarizeBy: sum
+		sourceColumn: net_revenue_target_eur
+
+	column 'Contribution Margin Target EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 890f808d-4332-4f16-b2db-92ca542fd20e
+		summarizeBy: sum
+		sourceColumn: contribution_margin_target_eur
+
+	column 'Orders Target'
+		dataType: int64
+		lineageTag: 55cea72e-4d0c-4898-b5b5-ba522b5b98c9
+		summarizeBy: sum
+		sourceColumn: orders_target
+
+	partition 'Monthly Executive' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_monthly_executive"]}[Data]
+				in
+				    Data
+

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "76ddbb5ab00b5da49b19",
+  "position": {
+    "x": 20,
+    "y": 478,
+    "z": 5000,
+    "width": 1240,
+    "height": 222,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "VALIDATED SAMPLE ACTION REGISTER",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11px",
+                      "color": "#2563EB",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "P0 · Commercial Director: Reprice and cap discounts for Electronics in Paid Search. Evidence: Electronics contribution changed by EUR -22,731 in 2025Q2.\n\nP0 · Operations Director: Launch a delivery-SLA recovery plan for DE and the North hub. Evidence: DE contribution changed by EUR -18,406; late delivery is an explicit return driver.\n\nP1 · Head of E-commerce: Prioritize mobile performance remediation in Sweden and the United Kingdom. Evidence: Current-quarter mobile load averages 1,487 ms with 13.4% conversion in those markets.\n\nP1 · Inventory Planning Lead: Raise reorder coverage for Electronics in DE. Evidence: Estimated lost revenue is EUR 16,884 with a 11.1% snapshot stockout rate.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11px",
+                      "color": "#172033",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Scenario disclosure: these findings describe deterministic generated operations. Refresh the narrative after rebuilding the pipeline; validate interventions with owned pilots or experiments.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10px",
+                      "color": "#5F6B7A",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F7F9FC'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sample management actions with priority, owner, evidence, and scenario disclosure.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

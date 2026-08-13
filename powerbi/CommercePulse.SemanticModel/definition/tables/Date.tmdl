@@ -1,0 +1,92 @@
+/// Conformed European calendar used for all active time relationships.
+table Date
+	lineageTag: 687da5c7-b22d-4329-992f-82229918cdac
+	dataCategory: Time
+
+	column 'Date Key'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: cd2d4158-d063-4841-b803-b47361c12787
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column Date
+		dataType: dateTime
+		isUnique
+		formatString: yyyy-mm-dd
+		lineageTag: 7fc9294b-b732-4129-997e-5833ba32bae3
+		summarizeBy: none
+		sourceColumn: date
+
+	column Year
+		dataType: int64
+		lineageTag: 12a5bd57-fee4-42a9-9032-55bc73d20c45
+		summarizeBy: none
+		sourceColumn: year
+
+	column Quarter
+		dataType: string
+		lineageTag: 2d2ac130-d20b-440c-9ca1-f9331b5a55ab
+		summarizeBy: none
+		sourceColumn: quarter
+
+	column 'Month Number'
+		dataType: int64
+		lineageTag: 96fdcf9e-8ee5-4f12-965a-27032e322ede
+		summarizeBy: none
+		sourceColumn: month_number
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 17e38175-5db3-475c-a166-271a29822b6f
+		summarizeBy: none
+		sourceColumn: month_name
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0d91edfd-8823-44ef-940a-71336460777f
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column 'Week Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 5aaf1a66-3560-4cdb-9b99-acf83f79c6a3
+		summarizeBy: none
+		sourceColumn: week_start
+
+	column 'ISO Week'
+		dataType: int64
+		lineageTag: 7dc3aeb5-3194-4919-8873-07c493763eae
+		summarizeBy: none
+		sourceColumn: iso_week
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 2fb8704f-1915-4926-843a-46f862414539
+		summarizeBy: none
+		sourceColumn: day_name
+
+	column 'Is Weekend'
+		dataType: boolean
+		lineageTag: ffa24572-91ea-4807-bbed-40e304647847
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+	column 'Is Month End'
+		dataType: boolean
+		lineageTag: 777140df-a18c-4d12-a1f1-734ccc106a8f
+		summarizeBy: none
+		sourceColumn: is_month_end
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "dim_date"]}[Data]
+				in
+				    Data
+

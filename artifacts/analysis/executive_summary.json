@@ -1,0 +1,142 @@
+{
+  "generated_at_utc": "2026-08-13T18:57:24.297269+00:00",
+  "scenario_disclosure": "The business records and findings are synthetic; ECB FX reference data is real.",
+  "analysis_window": {
+    "start": "2025-01-01",
+    "end": "2025-06-30",
+    "comparison": "2025Q1 versus 2025Q2"
+  },
+  "headline": {
+    "current_quarter_net_revenue_eur": 582688.920333299,
+    "net_revenue_change_pct": 0.1282159366336919,
+    "current_quarter_contribution_margin_eur": 39715.493602036855,
+    "contribution_margin_change_eur": -52168.020531740236,
+    "current_quarter_contribution_margin_rate": 0.0681589991093696,
+    "contribution_margin_rate_change_pp": -10.974801326412493,
+    "current_quarter_return_rate": 0.12844147968465736
+  },
+  "top_negative_contribution_drivers": [
+    {
+      "dimension": "Channel",
+      "dimension_value": "Paid Search",
+      "delta_contribution_margin_eur": -23144.57662429633,
+      "delta_contribution_margin_rate_pp": -16.83320270293548
+    },
+    {
+      "dimension": "Category",
+      "dimension_value": "Electronics",
+      "delta_contribution_margin_eur": -22730.646307484363,
+      "delta_contribution_margin_rate_pp": -11.359887574648294
+    },
+    {
+      "dimension": "Channel",
+      "dimension_value": "Paid Social",
+      "delta_contribution_margin_eur": -18996.962522023598,
+      "delta_contribution_margin_rate_pp": -28.24726069211335
+    },
+    {
+      "dimension": "Market",
+      "dimension_value": "DE",
+      "delta_contribution_margin_eur": -18406.260000000002,
+      "delta_contribution_margin_rate_pp": -11.950101264595208
+    },
+    {
+      "dimension": "Channel",
+      "dimension_value": "Marketplace",
+      "delta_contribution_margin_eur": -14631.365611152441,
+      "delta_contribution_margin_rate_pp": -30.13376845276838
+    }
+  ],
+  "forecast_diagnostics": {
+    "backtest_method": "Linear trend benchmark",
+    "holdout_months": 1,
+    "wape": 0.09854843447326984,
+    "bias": -0.09854843447326984,
+    "residual_std_eur": 11232.925292714333
+  },
+  "allocation_diagnostics": {
+    "total_marketing_spend_eur": 175093.9579242316,
+    "allocated_marketing_spend_eur": 175093.9579242316,
+    "direct_marketing_spend_eur": 175093.9579242316,
+    "residual_marketing_spend_eur": 0.0,
+    "completed_order_net_revenue_eur": 1099158.2427503304,
+    "completed_order_count": 8529.0,
+    "fulfilled_completed_order_count": 8523.0
+  },
+  "reconciliation_status": "PASS",
+  "actions": [
+    {
+      "action_id": "ACT-001",
+      "priority": "P0",
+      "owner": "Commercial Director",
+      "action": "Reprice and cap discounts for Electronics in Paid Search.",
+      "evidence": "Electronics contribution changed by EUR -22,731 in 2025Q2.",
+      "expected_impact": "Recover 1-2 percentage points of contribution margin in the affected mix.",
+      "guardrail": "Orders and 30-day return rate must not worsen by more than 5% relative.",
+      "review_cadence": "Weekly for six weeks",
+      "status": "Proposed"
+    },
+    {
+      "action_id": "ACT-002",
+      "priority": "P0",
+      "owner": "Operations Director",
+      "action": "Launch a delivery-SLA recovery plan for DE and the North hub.",
+      "evidence": "DE contribution changed by EUR -18,406; late delivery is an explicit return driver.",
+      "expected_impact": "Improve on-time rate toward 94% and reduce late-delivery returns.",
+      "guardrail": "Shipping cost per fulfilled order may rise by at most EUR 0.50.",
+      "review_cadence": "Weekly operations review",
+      "status": "Proposed"
+    },
+    {
+      "action_id": "ACT-003",
+      "priority": "P1",
+      "owner": "Head of E-commerce",
+      "action": "Prioritize mobile performance remediation in Sweden and the United Kingdom.",
+      "evidence": "Current-quarter mobile load averages 1,487 ms with 13.4% conversion in those markets.",
+      "expected_impact": "Improve checkout completion and conversion without increasing media spend.",
+      "guardrail": "Track conversion with Wilson confidence intervals; avoid causal claims without an experiment.",
+      "review_cadence": "Biweekly product review",
+      "status": "Proposed"
+    },
+    {
+      "action_id": "ACT-004",
+      "priority": "P1",
+      "owner": "Inventory Planning Lead",
+      "action": "Raise reorder coverage for Electronics in DE.",
+      "evidence": "Estimated lost revenue is EUR 16,884 with a 11.1% snapshot stockout rate.",
+      "expected_impact": "Recover lost units while limiting excess inventory.",
+      "guardrail": "Monitor days of supply and aged stock alongside stockout rate.",
+      "review_cadence": "Monthly S&OP",
+      "status": "Proposed"
+    }
+  ],
+  "chart_map": [
+    {
+      "chart": "Monthly net revenue",
+      "path": "artifacts/charts/monthly_net_revenue.png"
+    },
+    {
+      "chart": "Conversion funnel",
+      "path": "artifacts/charts/conversion_funnel.png"
+    },
+    {
+      "chart": "Cohort retention",
+      "path": "artifacts/charts/cohort_retention.png"
+    },
+    {
+      "chart": "Contribution root causes",
+      "path": "artifacts/charts/contribution_root_causes.png"
+    },
+    {
+      "chart": "Net revenue forecast",
+      "path": "artifacts/charts/net_revenue_forecast.png"
+    }
+  ],
+  "methodology_caveats": [
+    "Scenario findings describe generated commerce operations, not a real company.",
+    "Last-touch channel attribution is used for revenue; it is not causal incrementality.",
+    "The conversion model is observational and reports association, not causal lift.",
+    "Lost revenue from stockouts is an estimate based on generated demand and list price.",
+    "Forecast intervals reflect model residuals and do not capture all business uncertainty."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "CommercePulseExecutive-20260813.json",
+  "dataColors": [
+    "#2563EB",
+    "#D99A16",
+    "#EA7A1F",
+    "#6E7F2B",
+    "#C84B83",
+    "#0F8B8D",
+    "#6B5FD2",
+    "#8A5A44"
+  ],
+  "good": "#2F855A",
+  "neutral": "#D99A16",
+  "bad": "#C53030",
+  "maximum": "#2563EB",
+  "center": "#D99A16",
+  "minimum": "#DCE8FF",
+  "null": "#A0AEC0",
+  "foreground": "#172033",
+  "background": "#FFFFFF",
+  "tableAccent": "#2563EB",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 26,
+      "color": "#172033"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#172033"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#172033"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#344054"
+    }
+  }
+}

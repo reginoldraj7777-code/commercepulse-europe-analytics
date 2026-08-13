@@ -1,0 +1,78 @@
+/// Monthly return economics by market and product hierarchy.
+table 'Product Returns'
+	lineageTag: f37d6f02-88da-41c1-93ef-d53bb3e0a916
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4a7a7c79-6a8f-46e5-8d44-70bb7d65b84f
+		summarizeBy: none
+		sourceColumn: month_start
+
+	column 'Market Code'
+		dataType: string
+		lineageTag: 3f453ed5-5f9e-4cd0-8b5c-0f4f224bc2a7
+		summarizeBy: none
+		sourceColumn: market_code
+
+	column Category
+		dataType: string
+		lineageTag: f7706fcf-9638-49e1-9989-639fc2da8267
+		summarizeBy: none
+		sourceColumn: category
+
+	column Subcategory
+		dataType: string
+		lineageTag: d91f9ea8-25c4-426f-b007-15d03ca7a65d
+		summarizeBy: none
+		sourceColumn: subcategory
+
+	column 'Units Sold'
+		dataType: int64
+		lineageTag: ad15673c-0ff6-4b2d-ac7d-7d3b179586c6
+		summarizeBy: sum
+		sourceColumn: units_sold
+
+	column 'Units Returned'
+		dataType: int64
+		lineageTag: 7db2e7bb-e92d-43e0-a24c-406c641501f2
+		summarizeBy: sum
+		sourceColumn: units_returned
+
+	column 'Refunds EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 80bdd32c-2af5-415d-bc81-fe62ac29fec6
+		summarizeBy: sum
+		sourceColumn: refunds_eur
+
+	column 'Handling Cost EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: a7e38978-7fed-4508-a08e-c466cac5ab51
+		summarizeBy: sum
+		sourceColumn: handling_cost_eur
+
+	column 'Recovered COGS EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 014cb8c2-10f1-42b5-a3d6-61f8edd6887f
+		summarizeBy: sum
+		sourceColumn: recovered_cogs_eur
+
+	column 'Contribution Margin EUR'
+		dataType: double
+		formatString: €#,0
+		lineageTag: 6fe7d042-c9f5-4ac8-9f36-604d976adfdb
+		summarizeBy: sum
+		sourceColumn: contribution_margin_eur
+
+	partition 'Product Returns' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "mart_product_returns"]}[Data]
+				in
+				    Data
+

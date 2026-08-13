@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "workbook": "excel/CommercePulse_Manager_Pack.xlsx",
+  "bytes": 39884,
+  "sheets": [
+    "Summary",
+    "Monthly KPI",
+    "Exceptions",
+    "Action Register",
+    "Forecast",
+    "Definitions",
+    "Sources",
+    "Checks"
+  ],
+  "sheet_count": 8,
+  "formula_error_matches": 0,
+  "native_charts": 3,
+  "checks_evaluated": 32,
+  "workbook_gate": "PASS",
+  "previews": [
+    "artifacts/workbook_previews/summary.png",
+    "artifacts/workbook_previews/monthly_kpi.png",
+    "artifacts/workbook_previews/exceptions.png",
+    "artifacts/workbook_previews/action_register.png",
+    "artifacts/workbook_previews/forecast.png",
+    "artifacts/workbook_previews/definitions.png",
+    "artifacts/workbook_previews/sources.png",
+    "artifacts/workbook_previews/checks.png"
+  ]
+}

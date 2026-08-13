@@ -1,0 +1,547 @@
+{
+  "data": {
+    "reportPath": "/workspace/scratch/1999fdbb942e/commercepulse-europe-analytics/powerbi/CommercePulse.Report",
+    "visuals": [
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/3534c89015124a3bd4cc/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "3534c89015124a3bd4cc",
+        "visualType": "tableEx",
+        "position": {
+          "x": 20,
+          "y": 493,
+          "z": 4000,
+          "width": 800,
+          "height": 207,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/3bcc57001cf1e601ba09/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "3bcc57001cf1e601ba09",
+        "visualType": "lineChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/3f05d72676a36be77b4e/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "3f05d72676a36be77b4e",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 650,
+          "y": 225,
+          "z": 3000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/dcdc4ed03a1dde3da79c/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "dcdc4ed03a1dde3da79c",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      },
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/ef62fd53b09db04e10bc/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "ef62fd53b09db04e10bc",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/4742e1e6937d814ce78f/visuals/f176bb0cbc3c8b0b2328/visual.json",
+        "pageName": "4742e1e6937d814ce78f",
+        "pageDisplayName": "Executive Overview",
+        "visualName": "f176bb0cbc3c8b0b2328",
+        "visualType": "textbox",
+        "position": {
+          "x": 840,
+          "y": 493,
+          "z": 5000,
+          "width": 420,
+          "height": 207,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/67e80e3689e221265214/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "67e80e3689e221265214",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/8db8793fa359f37fed48/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "8db8793fa359f37fed48",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 650,
+          "y": 225,
+          "z": 3000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/93adc40e01a24fae51b1/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "93adc40e01a24fae51b1",
+        "visualType": "tableEx",
+        "position": {
+          "x": 650,
+          "y": 493,
+          "z": 5000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/9abe8dc18daf4916e5b5/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "9abe8dc18daf4916e5b5",
+        "visualType": "lineChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/bf8b27dbcade1fd2d7f2/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "bf8b27dbcade1fd2d7f2",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 493,
+          "z": 4000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/5136e737c23a8ed911f3/visuals/d3b4ddd1fed179dadd0e/visual.json",
+        "pageName": "5136e737c23a8ed911f3",
+        "pageDisplayName": "Growth & Profitability",
+        "visualName": "d3b4ddd1fed179dadd0e",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/29038e3f24f6f79ad319/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "29038e3f24f6f79ad319",
+        "visualType": "lineChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/2c784887571f036e5191/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "2c784887571f036e5191",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 650,
+          "y": 225,
+          "z": 3000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/2e31ed46abbf8decff0e/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "2e31ed46abbf8decff0e",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 493,
+          "z": 4000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/6f8c43a069222c983967/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "6f8c43a069222c983967",
+        "visualType": "tableEx",
+        "position": {
+          "x": 650,
+          "y": 493,
+          "z": 5000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/f3af3eb0bc5aaeb2758e/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "f3af3eb0bc5aaeb2758e",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/571349009224c23efbfb/visuals/fbe37330bc0d588fe542/visual.json",
+        "pageName": "571349009224c23efbfb",
+        "pageDisplayName": "Customer & Retention",
+        "visualName": "fbe37330bc0d588fe542",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/0e7735bf841ed6494a99/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "0e7735bf841ed6494a99",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 650,
+          "y": 225,
+          "z": 3000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/605d5e4c96bd8d7386ed/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "605d5e4c96bd8d7386ed",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/c7779bf08abb2e672873/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "c7779bf08abb2e672873",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/e5c97b3188387370dc70/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "e5c97b3188387370dc70",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/eaa1626b4095b29442c4/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "eaa1626b4095b29442c4",
+        "visualType": "tableEx",
+        "position": {
+          "x": 650,
+          "y": 493,
+          "z": 5000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/febe4198422e8bba879d/visuals/eaefd655344f184b87b0/visual.json",
+        "pageName": "febe4198422e8bba879d",
+        "pageDisplayName": "Product & Conversion",
+        "visualName": "eaefd655344f184b87b0",
+        "visualType": "lineChart",
+        "position": {
+          "x": 20,
+          "y": 493,
+          "z": 4000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/353df8739a3e1dc36cb6/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "353df8739a3e1dc36cb6",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/3ed4cbae5a1511f20372/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "3ed4cbae5a1511f20372",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 650,
+          "y": 225,
+          "z": 3000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/615f42df8195aa32e941/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "615f42df8195aa32e941",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/663223377bf9732235d7/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "663223377bf9732235d7",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 493,
+          "z": 4000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/6b8d2e809f6356209a8e/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "6b8d2e809f6356209a8e",
+        "visualType": "tableEx",
+        "position": {
+          "x": 650,
+          "y": 493,
+          "z": 5000,
+          "width": 610,
+          "height": 207,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/d17cbae5e73cb06aa65c/visuals/d289ceccdaaa67bfed97/visual.json",
+        "pageName": "d17cbae5e73cb06aa65c",
+        "pageDisplayName": "Operations & Returns",
+        "visualName": "d289ceccdaaa67bfed97",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 610,
+          "height": 250,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/48bd86fa5206b54d4449/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "48bd86fa5206b54d4449",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 440,
+          "y": 225,
+          "z": 3000,
+          "width": 400,
+          "height": 235,
+          "tabOrder": 3000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/4d9d152c2574e5c243cd/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "4d9d152c2574e5c243cd",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 860,
+          "y": 225,
+          "z": 4000,
+          "width": 400,
+          "height": 235,
+          "tabOrder": 4000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/76ddbb5ab00b5da49b19/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "76ddbb5ab00b5da49b19",
+        "visualType": "textbox",
+        "position": {
+          "x": 20,
+          "y": 478,
+          "z": 5000,
+          "width": 1240,
+          "height": 222,
+          "tabOrder": 5000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/a1dc50ec3966fc713257/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "a1dc50ec3966fc713257",
+        "visualType": "clusteredBarChart",
+        "position": {
+          "x": 20,
+          "y": 225,
+          "z": 2000,
+          "width": 400,
+          "height": 235,
+          "tabOrder": 2000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/b07a9cdad073d1e3f319/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "b07a9cdad073d1e3f319",
+        "visualType": "cardVisual",
+        "position": {
+          "x": 20,
+          "y": 88,
+          "z": 1000,
+          "width": 1240,
+          "height": 120,
+          "tabOrder": 1000
+        }
+      },
+      {
+        "path": "definition/pages/410f2f0111c38c0ed879/visuals/ed1edd5a4aabc89e9234/visual.json",
+        "pageName": "410f2f0111c38c0ed879",
+        "pageDisplayName": "Root Cause & Actions",
+        "visualName": "ed1edd5a4aabc89e9234",
+        "visualType": "textbox",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "width": 1280,
+          "height": 70,
+          "tabOrder": 0
+        }
+      }
+    ]
+  }
+}

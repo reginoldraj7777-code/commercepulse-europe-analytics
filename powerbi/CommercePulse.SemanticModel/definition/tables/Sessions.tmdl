@@ -1,0 +1,94 @@
+/// One row per digital session, including funnel steps, device, performance, and conversion outcome.
+table Sessions
+	lineageTag: d92eb4d2-0c1b-4ca4-bed9-e0bd6a25f81d
+
+	column 'Session ID'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: 440f59dc-6539-4081-8393-db2130a33854
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column 'Session Timestamp'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:mm
+		lineageTag: 9fe3eb7a-f5b9-41ba-8e90-32545fc8b4dd
+		summarizeBy: none
+		sourceColumn: session_ts
+
+	column 'Date Key'
+		dataType: int64
+		lineageTag: a1ed3023-276a-45fe-a5f1-18065773ed06
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column 'Customer Key'
+		dataType: int64
+		lineageTag: 4cb8ccfb-a73c-4a27-8025-1126cb344d76
+		summarizeBy: none
+		sourceColumn: customer_key
+
+	column 'Market Key'
+		dataType: int64
+		lineageTag: efc78ab5-4e00-407c-90c0-a8721207b1e8
+		summarizeBy: none
+		sourceColumn: market_key
+
+	column 'Channel Key'
+		dataType: int64
+		lineageTag: 9cb671c9-504d-4f77-83c9-e4873a21ca69
+		summarizeBy: none
+		sourceColumn: channel_key
+
+	column 'Device Type'
+		dataType: string
+		lineageTag: 1c4b93bb-edf6-4072-977d-49c39e6a6d6c
+		summarizeBy: none
+		sourceColumn: device_type
+
+	column 'Page Load MS'
+		dataType: int64
+		lineageTag: 71fd4754-734d-4c2e-9382-d933a78fd109
+		summarizeBy: sum
+		sourceColumn: page_load_ms
+
+	column 'Product Views'
+		dataType: int64
+		lineageTag: 38913abb-bfb2-47b7-81d4-7c227f413e1f
+		summarizeBy: sum
+		sourceColumn: product_views
+
+	column 'Added To Cart'
+		dataType: boolean
+		lineageTag: e92fd436-9f20-48bb-9a05-cc1bba49d8bc
+		summarizeBy: none
+		sourceColumn: added_to_cart
+
+	column 'Checkout Started'
+		dataType: boolean
+		lineageTag: 1fba2268-4e1a-435c-8cc4-58986463fd27
+		summarizeBy: none
+		sourceColumn: checkout_started
+
+	column 'Converted Order ID'
+		dataType: int64
+		lineageTag: 9f2fea11-1fc9-448c-8212-be84cc420f59
+		summarizeBy: none
+		sourceColumn: converted_order_id
+
+	column 'Converted Session'
+		dataType: int64
+		lineageTag: f10aeebf-fb33-4d6b-8bda-38412f72b363
+		summarizeBy: sum
+		sourceColumn: converted_session
+
+	partition Sessions = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "fct_sessions"]}[Data]
+				in
+				    Data
+

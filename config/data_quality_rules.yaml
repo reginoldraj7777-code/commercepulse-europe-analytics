@@ -1,0 +1,28 @@
+rules:
+  duplicate_session_id:
+    severity: critical
+    action: quarantine_older_duplicate
+  missing_session_market:
+    severity: high
+    action: quarantine
+  invalid_order_item_product:
+    severity: critical
+    action: quarantine
+  nonpositive_order_item_quantity:
+    severity: critical
+    action: quarantine
+  negative_marketing_spend:
+    severity: high
+    action: quarantine
+  invalid_fulfillment_sequence:
+    severity: high
+    action: quarantine
+  orphan_return_item:
+    severity: high
+    action: quarantine
+  negative_inventory_on_hand:
+    severity: high
+    action: quarantine
+  late_arrival_over_14_days:
+    severity: medium
+    action: retain_and_flag

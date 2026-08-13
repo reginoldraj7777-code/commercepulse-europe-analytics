@@ -1,0 +1,39 @@
+/// Last-touch acquisition and commerce channel taxonomy.
+table Channel
+	lineageTag: 7177724a-4797-42ec-b0ab-537a2de8ade5
+
+	column 'Channel Key'
+		dataType: int64
+		isUnique
+		isKey
+		lineageTag: 2159ca48-a077-4ac8-924c-c47d60d86278
+		summarizeBy: none
+		sourceColumn: channel_key
+
+	column 'Channel Name'
+		dataType: string
+		lineageTag: 8232bed0-99e2-4bba-8ef5-7fad3dfe1957
+		summarizeBy: none
+		sourceColumn: channel_name
+
+	column 'Channel Group'
+		dataType: string
+		lineageTag: 6620eeb4-28b0-4100-b5ea-09d07e35e161
+		summarizeBy: none
+		sourceColumn: channel_group
+
+	column 'Is Paid'
+		dataType: boolean
+		lineageTag: d67d3e6c-2686-4a6d-b934-7e7be1eedf11
+		summarizeBy: none
+		sourceColumn: is_paid
+
+	partition Channel = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(Server, Database, [CreateNavigationProperties = false]),
+				    Data = Source{[Schema = "portfolio", Item = "dim_channel"]}[Data]
+				in
+				    Data
+
