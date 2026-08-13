@@ -19,3 +19,4 @@ artifacts/full_run_data/
 **/.pbi/cache.abf
 **/.DS_Store
 dbt/.user.yml
+*.egg-info/
