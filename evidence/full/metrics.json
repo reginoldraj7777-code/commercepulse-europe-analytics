@@ -1,0 +1,243 @@
+{
+  "generated_utc": "2026-10-20T13:08:24.709522+00:00",
+  "seed": 20261018,
+  "base_commit": "9e6abf1b3ff9fdb2c2398b4161704886baf16a91",
+  "source_sha256": "574abfb85f3f9cbaae2f9eb7b6f2c8bbcef23f3dd6741ad2325479cb354f6ba3",
+  "synthetic": true,
+  "events": 8000000,
+  "journeys": 650000,
+  "markets": [
+    "DE",
+    "FR",
+    "IT",
+    "ES",
+    "NL",
+    "AT"
+  ],
+  "channels": [
+    "web",
+    "store",
+    "marketplace"
+  ],
+  "event_key_sha256": "566cd1676699113ad2052b21f2d31669a9a9d12aabbc42f0b856d9f5abe642c5",
+  "quality": {
+    "evaluated_rows": 8000000,
+    "failed_rows": 0,
+    "pass_rate": 1.0,
+    "rules": [
+      "journey foreign key bounds",
+      "market and channel domains",
+      "finite engagement in [0,1)"
+    ],
+    "unique_event_ids": "Contiguous, nonoverlapping ranges by construction; covered by persisted-data regression test."
+  },
+  "dax_measures": 57,
+  "forecast": {
+    "train_days": 337,
+    "holdout_days": 28,
+    "holdout_rows": 168,
+    "wape": 0.07260930841719218,
+    "seasonal_naive_wape": 0.09012086179716237,
+    "scope": "Independent synthetic daily demand fixture; not fitted to the event stream."
+  },
+  "scenarios": {
+    "retention": [
+      {
+        "assumed_incremental_purchase_probability": 0.02,
+        "eligible_journeys": 407408,
+        "contact_cost_eur": 0.35,
+        "modeled_net_contribution_eur": -27080.809322266097
+      },
+      {
+        "assumed_incremental_purchase_probability": 0.04,
+        "eligible_journeys": 407408,
+        "contact_cost_eur": 0.35,
+        "modeled_net_contribution_eur": 88431.1813554678
+      },
+      {
+        "assumed_incremental_purchase_probability": 0.06,
+        "eligible_journeys": 407408,
+        "contact_cost_eur": 0.35,
+        "modeled_net_contribution_eur": 203943.17203320167
+      }
+    ],
+    "inventory": {
+      "budget_units": 56147,
+      "modeled_total_recovery_eur": 683849.3608669753,
+      "equal_allocation_recovery_eur": 683243.606177642,
+      "optimization_lift_eur": 605.7546893332619
+    },
+    "top_value_quintile_contribution_per_marketing_euro_relative_difference": 1.1086217507625284,
+    "scope": "Assumption-based synthetic scenarios, not realized revenue, causal lift, or validated annual forecasts."
+  },
+  "persisted": true,
+  "partitions": [
+    {
+      "file": "events/part-000000000.parquet",
+      "rows": 250000,
+      "sha256": "b0d012a05e5f410994011099b17159b3fa66bfca4bd886e9c02e4a95d1f71741"
+    },
+    {
+      "file": "events/part-000250000.parquet",
+      "rows": 250000,
+      "sha256": "77f52ca80e938b28a085582fedae78bb6c41f5ee6fc7f1d5c2e7e2d701848a0d"
+    },
+    {
+      "file": "events/part-000500000.parquet",
+      "rows": 250000,
+      "sha256": "31f779fd8a40317603eb4282e2b0c210e87d129a28e6197043bf28e63c016690"
+    },
+    {
+      "file": "events/part-000750000.parquet",
+      "rows": 250000,
+      "sha256": "e5b70f20b9a8bb3d8dbc061363173264f0f8f5c2754728d65ce9c44ad1c54991"
+    },
+    {
+      "file": "events/part-001000000.parquet",
+      "rows": 250000,
+      "sha256": "0876ff8524efcec5285201f70796b58505bc3d22b890e5ff6c0b8d9793916008"
+    },
+    {
+      "file": "events/part-001250000.parquet",
+      "rows": 250000,
+      "sha256": "b5f7371725477c69be563816a41fab1c6e9506de58301c648c00640a653f93a9"
+    },
+    {
+      "file": "events/part-001500000.parquet",
+      "rows": 250000,
+      "sha256": "615ee5696a1fd5008f22808975b31b78ce2e2cbf1297585a341416f9946f53f6"
+    },
+    {
+      "file": "events/part-001750000.parquet",
+      "rows": 250000,
+      "sha256": "d49f7c0e6563c9d480426cfd9d2893f9f32d98add898737aed9410b9b3f2d4f7"
+    },
+    {
+      "file": "events/part-002000000.parquet",
+      "rows": 250000,
+      "sha256": "b413d96cc3f4cdaad97153ac8caed7e4675e709fba89082f7e1ba6e96f12aa1f"
+    },
+    {
+      "file": "events/part-002250000.parquet",
+      "rows": 250000,
+      "sha256": "ea14bfeeb7d55ee390f73a1aa98b4359f7052637f4866217bbef24e8ca93cb7a"
+    },
+    {
+      "file": "events/part-002500000.parquet",
+      "rows": 250000,
+      "sha256": "a514c6137c9786cf742da078652a2b0bc9f6d007167985d3df356dc4f76c6e27"
+    },
+    {
+      "file": "events/part-002750000.parquet",
+      "rows": 250000,
+      "sha256": "d2c01f8d93818e95168160b68cdc8531a7bec0179c2e7e562462d1efe8625159"
+    },
+    {
+      "file": "events/part-003000000.parquet",
+      "rows": 250000,
+      "sha256": "23c227ef3176b36aea9b338b340972cc0102bcab6e0046a2e5e0002d72202b08"
+    },
+    {
+      "file": "events/part-003250000.parquet",
+      "rows": 250000,
+      "sha256": "5c8a640775d68386ff02a6148b2640c3005d0db5d351f0a7468d8c10517f04c6"
+    },
+    {
+      "file": "events/part-003500000.parquet",
+      "rows": 250000,
+      "sha256": "b7fde150cce2c082cfb665fc50c05284f289ff3e0ed5a2f379291e2a75694bc4"
+    },
+    {
+      "file": "events/part-003750000.parquet",
+      "rows": 250000,
+      "sha256": "40b654ca1cb55b03ae89487151373036d8e19c937ebe451c3c69499714e8f6e8"
+    },
+    {
+      "file": "events/part-004000000.parquet",
+      "rows": 250000,
+      "sha256": "e6aef6ba0cc34bbab9a6184c4b871e4cd8395167804bb289e84efb0ebfde8406"
+    },
+    {
+      "file": "events/part-004250000.parquet",
+      "rows": 250000,
+      "sha256": "f56f80168220148d2838e1bca0567c959e372d3528462c07bd42bd542aec98ab"
+    },
+    {
+      "file": "events/part-004500000.parquet",
+      "rows": 250000,
+      "sha256": "b22a1359004d88f630480c2d4f5179c551f74d349b8d4ef0a133041da5521e37"
+    },
+    {
+      "file": "events/part-004750000.parquet",
+      "rows": 250000,
+      "sha256": "2ebef10fb17784005c14d87b9be82990bff1954ce0e15e9018dab88f9bbac230"
+    },
+    {
+      "file": "events/part-005000000.parquet",
+      "rows": 250000,
+      "sha256": "0034eb10cfb63340d902fdfd92d0fb264919b52097905a6554d96ab3e5a8d949"
+    },
+    {
+      "file": "events/part-005250000.parquet",
+      "rows": 250000,
+      "sha256": "38fa260a611e1554b99d0132644cf13b92eb7541e46c700fcec77781719f82e7"
+    },
+    {
+      "file": "events/part-005500000.parquet",
+      "rows": 250000,
+      "sha256": "9680dcdb7a5f26e479047cdea19b890eff191257e450de03d71bab51c7cd1aa0"
+    },
+    {
+      "file": "events/part-005750000.parquet",
+      "rows": 250000,
+      "sha256": "9f6345cc58e0c6abeb0bd0f47daa9eb517eacc2e8bc763d6f7a3cc4157810780"
+    },
+    {
+      "file": "events/part-006000000.parquet",
+      "rows": 250000,
+      "sha256": "72d0822ca4a3071859ace428063556fe50b01707bbd81feb9a92fa0dfb6ccc0a"
+    },
+    {
+      "file": "events/part-006250000.parquet",
+      "rows": 250000,
+      "sha256": "5546047e96eb763a171b94250158fb33eae7c4d0245e6bdbd450e899ef153503"
+    },
+    {
+      "file": "events/part-006500000.parquet",
+      "rows": 250000,
+      "sha256": "ec65198646cf87461c0c154cdc8e75b4af37c50d437c0cfba55a4672f734d348"
+    },
+    {
+      "file": "events/part-006750000.parquet",
+      "rows": 250000,
+      "sha256": "7abd5c3235c65b456ff6e5bdf34fbf7a035130d595876b3976b3468d56f07e9c"
+    },
+    {
+      "file": "events/part-007000000.parquet",
+      "rows": 250000,
+      "sha256": "c530c0abf828a4f774a434ade621e7d4136c9e2778ddbecea515361496204cfd"
+    },
+    {
+      "file": "events/part-007250000.parquet",
+      "rows": 250000,
+      "sha256": "d2817f183564158966c4c3844b417e2738a440fbb5a7b4609f136ff21fc676d8"
+    },
+    {
+      "file": "events/part-007500000.parquet",
+      "rows": 250000,
+      "sha256": "1b1466d4892f6f269a49dff013d238731008e981c19e0de19abb6a396d40ea6e"
+    },
+    {
+      "file": "events/part-007750000.parquet",
+      "rows": 250000,
+      "sha256": "043579723ffc3eea66e7887141c83362af0aa1dc05baec8f4856300e23481fdb"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "elapsed_seconds": 7.669281249999983
+}
