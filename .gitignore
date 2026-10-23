@@ -20,3 +20,7 @@ artifacts/full_run_data/
 **/.DS_Store
 dbt/.user.yml
 *.egg-info/
+
+evidence/**/events/
+evidence/**/*.parquet
+evidence/sample/

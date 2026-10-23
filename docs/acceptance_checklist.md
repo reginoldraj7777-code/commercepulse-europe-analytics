@@ -10,7 +10,7 @@
 - [x] Singular finance and rate-range tests exist.
 - [x] Twenty-four portfolio SQL analyses exist.
 - [x] Notebook is executed with stored outputs.
-- [x] Power BI project contains six pages, 36 visuals, TMDL model, 52 measures, and 23 relationships.
+- [x] Power BI project contains six pages, 36 visuals, TMDL model, 57 measures, and 23 relationships.
 - [x] Power BI schema validation returns zero errors and zero warnings.
 - [x] Excel manager pack has eight sheets, live formulas, charts, validation, sources, checks, and action workflow.
 - [x] Workbook formula scan reports no errors and every sheet is visually reviewed.

@@ -20,7 +20,7 @@
 | Path | Purpose |
 |---|---|
 | `CommercePulse.pbip` | Project entry point |
-| `CommercePulse.SemanticModel/definition/` | TMDL database, model, expressions, relationships, 16 tables, 52 DAX measures |
+| `CommercePulse.SemanticModel/definition/` | TMDL database, model, expressions, relationships, 16 tables, 57 DAX measures |
 | `CommercePulse.Report/definition/` | PBIR report, six pages, 36 visuals |
 | `CommercePulse.Report/StaticResources/` | Custom theme |
 | `scripts/build_powerbi_model.mjs` | Deterministic semantic-model builder |

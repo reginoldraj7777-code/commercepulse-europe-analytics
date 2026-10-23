@@ -63,3 +63,9 @@ jobs:
           node_modules/.bin/powerbi-report-author --pretty validate CommercePulse.pbip
       - name: Validate release contracts
         run: python scripts/validate_project.py
+      - name: Reproduce full scale and decision evidence
+        run: python -m commercepulse.evidence --profile full --output evidence/ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: commercepulse-evidence
+          path: evidence/ci/

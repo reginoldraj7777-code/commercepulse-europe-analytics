@@ -372,6 +372,11 @@ const relationships = [
 }));
 
 const measures = [
+  ["Contribution per Order", "DIVIDE([Contribution Margin], [Orders])", "\u20ac#,0.00", "Unit Economics"],
+  ["Contribution per Customer", "DIVIDE([Contribution Margin], [Purchasing Customers])", "\u20ac#,0.00", "Unit Economics"],
+  ["Contribution per Marketing Euro", "DIVIDE([Contribution Margin], [Marketing Spend])", "0.00x", "Unit Economics"],
+  ["Discount Rate", "DIVIDE([Discounts], [Gross Revenue])", "0.0%", "Unit Economics"],
+  ["Refund Rate", "DIVIDE([Refunds], [Gross Revenue])", "0.0%", "Unit Economics"],
   ["Gross Revenue", "SUM('Order Profitability'[Gross Revenue EUR])", "€#,0;[Red]-€#,0", "Finance"],
   ["Discounts", "SUM('Order Profitability'[Discount EUR])", "€#,0;[Red]-€#,0", "Finance"],
   ["Refunds", "SUM('Order Profitability'[Refund EUR])", "€#,0;[Red]-€#,0", "Finance"],

@@ -34,3 +34,15 @@
 ## Cross-tool governance
 
 The source formulas are implemented in `src/commercepulse/analysis.py`, dbt marts, `powerbi/CommercePulse.SemanticModel/definition/tables/KPI Measures.tmdl`, and formula cells in `excel/CommercePulse_Manager_Pack.xlsx`. The workbook `Definitions` sheet provides the manager-facing version.
+
+## Unit economics extension (October 2026)
+
+| Measure | Definition | Interpretation |
+|---|---|---|
+| Contribution per Order | Contribution Margin / Orders | Contribution after modeled costs per order |
+| Contribution per Customer | Contribution Margin / Purchasing Customers | Contribution per distinct purchasing customer |
+| Contribution per Marketing Euro | Contribution Margin / Marketing Spend | Descriptive ratio; not causal marketing ROI |
+| Discount Rate | Discounts / Gross Revenue | Discount burden on gross revenue |
+| Refund Rate | Refunds / Gross Revenue | Refund burden on gross revenue |
+
+All five use DAX DIVIDE to return blank when the denominator is zero. Definitions are maintained in both the TMDL source and model generator, bringing the semantic model to 57 measures.

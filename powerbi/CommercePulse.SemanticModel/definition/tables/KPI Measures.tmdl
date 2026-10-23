@@ -314,6 +314,31 @@ table 'KPI Measures'
 		displayFolder: Funnel
 		lineageTag: 67fff792-81e3-462f-b78e-29060938e5d3
 
+	measure 'Contribution per Order' = DIVIDE([Contribution Margin], [Orders])
+		formatString: €#,0.00
+		displayFolder: Unit Economics
+		lineageTag: 1a0fc069-a36d-542f-beb9-c6e265a697bf
+
+	measure 'Contribution per Customer' = DIVIDE([Contribution Margin], [Purchasing Customers])
+		formatString: €#,0.00
+		displayFolder: Unit Economics
+		lineageTag: 042c050b-bdfb-52b2-b73c-ca8a0e778040
+
+	measure 'Contribution per Marketing Euro' = DIVIDE([Contribution Margin], [Marketing Spend])
+		formatString: 0.00x
+		displayFolder: Unit Economics
+		lineageTag: df89472e-a453-5afe-ba19-658621e9c744
+
+	measure 'Discount Rate' = DIVIDE([Discounts], [Gross Revenue])
+		formatString: 0.0%
+		displayFolder: Unit Economics
+		lineageTag: 2bf8db00-a575-5c76-a815-9ddb13e3a7cf
+
+	measure 'Refund Rate' = DIVIDE([Refunds], [Gross Revenue])
+		formatString: 0.0%
+		displayFolder: Unit Economics
+		lineageTag: 60652c1a-6e21-5953-8cfc-1b03cb7d7cc8
+
 	partition 'KPI Measures' = calculated
 		mode: import
 		source = DATATABLE("Metric Key", INTEGER, {{1}})

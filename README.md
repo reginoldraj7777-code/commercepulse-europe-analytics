@@ -1,129 +1,64 @@
 # CommercePulse Europe
 
-An end-to-end omnichannel commerce analytics portfolio that connects growth, profitability, customer retention, product conversion, returns, delivery reliability, inventory, and management actions.
+### From omnichannel activity to defensible commercial decisions
 
-The project is designed to answer one executive question:
+A runnable analytics portfolio covering contribution margin, retention, conversion, returns and inventory. Python generates and validates data; PostgreSQL and dbt provide governed marts; Power BI and Excel expose management decisions. All commerce data is **synthetic**.
 
-> How can a European commerce business protect revenue growth while recovering contribution margin?
+[Reproduce the evidence](#reproduce-the-evidence) · [Claim-to-code map](docs/resume_evidence.md) · [Methodology](docs/evaluation_methodology.md) · [Power BI guide](docs/powerbi_guide.md)
 
-The included CI-sized scenario shows the tension clearly: Q2 net revenue grew **12.8% QoQ** to **€582.7k**, while contribution margin fell **€52.2k** and margin rate declined **11.0 percentage points**. The diagnostic layer traces the pressure to paid acquisition, electronics economics, German operations, returns, and replenishment exceptions, then assigns actions with owners and guardrails.
+![Measured forecast and modeled opportunity](evidence/full/evaluation.png)
 
-![CommercePulse manager pack](artifacts/workbook_previews/summary.png)
+## Evidence at a glance
 
-## What is included
+| Capability | Executed result | Inspect |
+|---|---:|---|
+| Chunked omnichannel processing | **8,000,000 events · 6 markets · 3 channels** | [Run manifest](evidence/full/metrics.json), [market totals](evidence/full/event_counts.csv) |
+| Journey analysis | **650,000 synthetic journeys** | [Generator and scenarios](src/commercepulse/evidence.py) |
+| Power BI semantic layer | **57 DAX measures**, six report pages | [Measure definitions](powerbi/CommercePulse.SemanticModel/definition/tables/KPI%20Measures.tmdl) |
+| Forward holdout evaluation | **7.26% WAPE**, vs 9.01% seasonal baseline | [168 predictions and actuals](evidence/full/forecast_holdout.csv) |
+| Retention economics | **€203,943** at an assumed 6 pp incremental purchase probability | [2/4/6 pp sensitivity](evidence/full/retention_sensitivity.csv) |
+| Inventory allocation | **€683,849** total modeled recovery; **€606** above equal allocation | [Market-level allocation](evidence/full/inventory_allocation.csv) |
 
-- Deterministic Python data generation with an auditable seed and known business process shifts.
-- **2M+ row** portfolio profile and a fast CI sample profile.
-- Explicit raw → quarantine → clean quality gates using Pandera and reconciliation checks.
-- PostgreSQL 16 warehouse loading plus dbt staging, intermediate, dimensional, and mart models.
-- Twenty-four decision-oriented PostgreSQL analyses.
-- An executed statistical notebook with confidence intervals, association diagnostics, forecast backtesting, and management actions.
-- A source-controlled Power BI Project (`.pbip`) with a TMDL semantic model, 52 governed DAX measures, 23 relationships, six report pages, and 36 data-bound visuals.
-- A formula-backed Excel manager pack with eight sheets, native charts, controlled action fields, provenance, and a visible PASS/FAIL gate.
-- CI, tests, data contracts, KPI definitions, traceability, recruiter walkthrough, and known limitations.
+The six-market scale evaluation is a new, separately reproducible profile. The existing ten-market PostgreSQL/dbt/Power BI demonstration uses its own data. The demand forecast is an independent daily synthetic fixture; the event stream does not train it. Scenario euros depend on stated assumptions and are not realized or validated annual returns.
 
-## Architecture
+## Reproduce the evidence
 
-```mermaid
-flowchart TD
-    A["Deterministic generator + ECB FX"] --> B["Raw Parquet"]
-    B --> C["Quality rules"]
-    C --> D["Quarantine"]
-    C --> E["Clean Parquet"]
-    E --> F["PostgreSQL raw schema"]
-    F --> G["dbt portfolio marts"]
-    E --> H["Python decision analysis"]
-    G --> I["Power BI semantic model"]
-    H --> J["Executed notebook"]
-    H --> K["Excel manager pack"]
-    I --> L["Six-page decision report"]
-```
-
-See [architecture.md](docs/architecture.md) for grains, lineage, and control points.
-
-## Fast verification
-
-Requirements: Python 3.12 and a standard virtual environment.
+Python 3.12:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
-python -m commercepulse.cli all --profile ci --data-root data/sample --artifact-root artifacts
-python scripts/build_notebook.py
-python scripts/execute_notebook.py notebooks/commercepulse_decision_analysis.ipynb
 pytest
-python scripts/validate_project.py
+python -m commercepulse.evidence --profile full --persist --output evidence/reproduced
 ```
 
-The deterministic sample should report:
+The full run materializes 8M events as Parquet partitions plus a 650K-row journey table. A second run into the same persisted directory is rejected to prevent stale partitions. Use `--profile sample` for a smaller run. Compare semantic values and hashes, not timestamps or machine-dependent duration.
 
-- 115,397 generated rows before cleaning.
-- Data quality: `PASS`.
-- Analytical reconciliation: `PASS`.
-- Net revenue: approximately €1.10m.
-- Contribution margin: approximately €131.6k.
-- Marketing allocation coverage: 100%.
-- Forecast holdout WAPE: approximately 9.9%.
+## Architecture and scope
 
-## Warehouse and dbt
-
-```bash
-docker compose up -d postgres
-python -m commercepulse.cli load-postgres --input data/sample/clean
-dbt build --project-dir dbt --profiles-dir dbt
+```mermaid
+flowchart TD
+    A["Synthetic commerce source"] --> B["Quality gates + quarantine"]
+    B --> C["PostgreSQL + dbt marts"]
+    C --> D["Power BI + Excel decisions"]
+    E["6-market scale profile"] --> F["Partitioned events + journeys"]
+    F --> G["Validation + scenario evidence"]
+    F --> H["Databricks Delta import"]
 ```
 
-dbt writes governed marts to the `portfolio` schema. The source connection defaults match `docker-compose.yml` and can be overridden with the `POSTGRES_*` environment variables shown in `.env.example`.
+The [Databricks notebook](databricks/commercepulse_events.py) validates event uniqueness, journey references and market counts before writing Delta tables. It requires your own workspace and Unity Catalog volume; no Databricks execution is claimed.
 
-## Full portfolio profile
+## Explore the decision products
 
-```bash
-python -m commercepulse.cli generate --profile portfolio --output data/full
-python -m commercepulse.cli quality --input data/full --output artifacts/full_validation
-```
+![Original manager pack, separate warehouse scenario](artifacts/workbook_previews/summary.png)
 
-The verified full run generated **2,530,582 rows**, retained **2,527,989 clean rows**, quarantined **2,593 invalid rows**, and passed every critical quality check. The full data is intentionally ignored by Git because it is reproducible; its seed, row counts, hashes, and validation result are recorded in `artifacts/validation/full_run_manifest.json`.
+- [Original warehouse setup and walkthrough](docs/previous_project_overview.md): PostgreSQL, dbt, sample pipeline and notebook commands.
+- [Power BI project](powerbi/CommercePulse.pbip): source-controlled model, relationships and six decision pages. Refresh requires Power BI Desktop and the PostgreSQL marts.
+- [Excel manager pack](excel/CommercePulse_Manager_Pack.xlsx): formulas, native charts and action owners.
+- [SQL analyses](sql/analysis): 24 queries covering commercial and operational decisions.
+- [Decision brief](docs/decision_brief.md), [data contracts](docs/data_contracts.md), [development record](docs/development_notes.md).
 
-## Decision products
+## Verification boundaries
 
-| Product | Open here | What it demonstrates |
-|---|---|---|
-| Power BI Project | `powerbi/CommercePulse.pbip` | TMDL model, DAX governance, relationships, PBIR layouts, six decision pages |
-| Excel manager pack | `excel/CommercePulse_Manager_Pack.xlsx` | Live formulas, native charts, action workflow, sources, validation gate |
-| Executed notebook | `notebooks/commercepulse_decision_analysis.ipynb` | Reproducible analysis, diagnostics, uncertainty, forecast, actions |
-| SQL portfolio | `sql/analysis/` | 24 parameter-free management analyses using PostgreSQL patterns |
-| Decision brief | [decision_brief.md](docs/decision_brief.md) | Findings, evidence, actions, guardrails, caveats |
-
-Power BI Desktop is required to refresh and interact with the report. Open the `.pbip`, keep the default `Server=localhost` and `Database=commercepulse`, authenticate to PostgreSQL, and refresh after the dbt build. The committed source has been validated against Microsoft’s current PBIP/PBIR JSON schemas; see [powerbi_guide.md](docs/powerbi_guide.md).
-
-## Selected findings from the CI scenario
-
-1. **Growth is not the problem; growth quality is.** Q2 revenue rose 12.8%, but contribution margin fell €52.2k.
-2. **Paid acquisition carries the largest channel pressure.** Paid Search contribution changed by approximately -€23.1k; Paid Social by -€19.0k.
-3. **Electronics is the largest category contribution drag.** Its quarterly contribution changed by approximately -€22.7k.
-4. **Germany is the largest market drag.** Contribution changed by approximately -€18.4k alongside delivery and replenishment pressure.
-5. **The forecast is a planning benchmark, not an oracle.** The one-month holdout WAPE is 9.9%, and uncertainty bands are displayed explicitly.
-
-The resulting action queue assigns Commercial, Operations, E-commerce, and Inventory owners, with measurable guardrails to prevent local optimization.
-
-## Data disclosure
-
-All customers, sessions, orders, products, marketing, fulfillment, returns, inventory, targets, and findings are **deterministic synthetic data**. The only real observations are cached [European Central Bank euro foreign-exchange reference rates](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html), used to translate generated local-currency amounts into EUR. No personal data or company-confidential records are included.
-
-## Documentation map
-
-- [Business requirements](docs/business_requirements.md)
-- [Architecture](docs/architecture.md)
-- [Data contracts](docs/data_contracts.md)
-- [KPI catalog](docs/kpi_catalog.md)
-- [Decision brief](docs/decision_brief.md)
-- [Dashboard blueprint](docs/dashboard_blueprint.md)
-- [Recruiter walkthrough](docs/recruiter_walkthrough.md)
-- [Traceability matrix](docs/traceability_matrix.md)
-- [Source manifest](docs/source_manifest.md)
-- [Limitations](docs/limitations.md)
-
-## License
-
-MIT. See `LICENSE`.
+The full event run passed the three documented row-level validation groups on every generated row. That is a **100% synthetic-row pass rate**, not an independently measured 99.5% operational quality SLA. The current holdout does not establish an exact 9.6% historical WAPE, and selecting high-value journeys does not establish 14% causal marketing uplift. See the claim map for exact support and remaining gaps.

@@ -6,7 +6,7 @@
 2. Open the Excel `Summary` sheet to see the decision framing, formula-backed cards, charts, and action queue.
 3. Open the executed notebook and inspect the stored outputs for confidence intervals, diagnostics, forecast backtest, and actions.
 4. Browse `sql/analysis/` to see 24 decision queries rather than tutorial fragments.
-5. Inspect the Power BI folder: report definition, TMDL semantic model, 52 measures, relationships, theme, and six pages are all source-controlled.
+5. Inspect the Power BI folder: report definition, TMDL semantic model, 57 measures, relationships, theme, and six pages are all source-controlled.
 6. Finish with `artifacts/validation` and the `Checks` workbook sheet to demonstrate trust controls.
 
 ## Fifteen-minute technical path
