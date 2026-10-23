@@ -1,5 +1,7 @@
 # CommercePulse Europe
 
+[![CI](https://github.com/reginoldraj7777-code/commercepulse-europe-analytics/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/reginoldraj7777-code/commercepulse-europe-analytics/actions/workflows/ci.yml) · [Documentation](docs/README.md) · [Verified CI run](docs/ci_verification.md)
+
 ### From omnichannel activity to defensible commercial decisions
 
 A runnable analytics portfolio covering contribution margin, retention, conversion, returns and inventory. Python generates and validates data; PostgreSQL and dbt provide governed marts; Power BI and Excel expose management decisions. All commerce data is **synthetic**.
@@ -53,12 +55,23 @@ The [Databricks notebook](databricks/commercepulse_events.py) validates event un
 
 ![Original manager pack, separate warehouse scenario](artifacts/workbook_previews/summary.png)
 
-- [Original warehouse setup and walkthrough](docs/previous_project_overview.md): PostgreSQL, dbt, sample pipeline and notebook commands.
+- [Warehouse setup and walkthrough](docs/warehouse_walkthrough.md): PostgreSQL, dbt, sample pipeline and notebook commands.
 - [Power BI project](powerbi/CommercePulse.pbip): source-controlled model, relationships and six decision pages. Refresh requires Power BI Desktop and the PostgreSQL marts.
 - [Excel manager pack](excel/CommercePulse_Manager_Pack.xlsx): formulas, native charts and action owners.
 - [SQL analyses](sql/analysis): 24 queries covering commercial and operational decisions.
 - [Decision brief](docs/decision_brief.md), [data contracts](docs/data_contracts.md), [development record](docs/development_notes.md).
 
-## Verification boundaries
+## Verification and scope
 
 The full event run passed the three documented row-level validation groups on every generated row. That is a **100% synthetic-row pass rate**, not an independently measured 99.5% operational quality SLA. The current holdout does not establish an exact 9.6% historical WAPE, and selecting high-value journeys does not establish 14% causal marketing uplift. See the claim map for exact support and remaining gaps.
+
+## Repository guide
+
+| Location | Contents |
+|---|---|
+| `src/commercepulse/` | Generation, validation, warehouse loading and evaluation |
+| `dbt/ and sql/` | Warehouse transformations and analytical queries |
+| `powerbi/ and excel/` | Decision products |
+| `data/sample/ and artifacts/` | Warehouse sample and recorded outputs |
+| `evidence/full/` | Independent scale benchmark records |
+| `docs/` | Setup, methodology and evidence navigation |

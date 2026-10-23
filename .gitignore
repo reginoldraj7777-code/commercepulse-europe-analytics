@@ -24,3 +24,9 @@ dbt/.user.yml
 evidence/**/events/
 evidence/**/*.parquet
 evidence/sample/
+
+# Local verification reruns
+evidence/reproduced/
+evidence/ci/
+.coverage.*
+.ruff_cache/

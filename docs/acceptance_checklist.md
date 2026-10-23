@@ -1,6 +1,6 @@
 # Acceptance checklist
 
-- [x] Clean project is independent of the preserved legacy archive.
+- [x] Warehouse demonstration and independent scale benchmark have documented scope.
 - [x] Deterministic CI and portfolio profiles exist.
 - [x] Portfolio-scale run generated 2,530,582 rows and passed every critical clean-layer check.
 - [x] Synthetic/real-source disclosure is visible in README, notebook, workbook, and manifests.
